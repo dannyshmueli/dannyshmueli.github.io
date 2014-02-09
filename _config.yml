@@ -58,6 +58,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # post_asides:
 # page_asides:
 
+permalink_label: "&infin;"
+permalink_label_feed: "&infin; Permalink"
+linklog_marker: "&rarr;"
+linklog_marker_position: before
+linklog_marker_position_feed: before
+standard_post_marker:
+
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
