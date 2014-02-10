@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Shmueli Blog]]></title>
   <link href="http://dannyshmueli.github.io/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.github.io/"/>
-  <updated>2014-02-10T01:11:07+02:00</updated>
+  <updated>2014-02-10T20:47:36+02:00</updated>
   <id>http://dannyshmueli.github.io/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -12,6 +12,16 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How I setup this blog- Octorpresse Github.io, Custom Domain, theme]]></title>
+    <link href="http://dannyshmueli.github.io/blog/2014/02/10/how-i-setup-this-blog-octorpress/"/>
+    <updated>2014-02-10T11:06:33+02:00</updated>
+    <id>http://dannyshmueli.github.io/blog/2014/02/10/how-i-setup-this-blog-octorpress</id>
+    <content type="html"><![CDATA[<blockquote><p>Over the past 24 hours I&#8217;ve been reflecting on my life & I&#8217;ve realized only one thing. I need a medieval battle axe.</p><footer><strong>@allanbranch</strong> <cite><a href='https://twitter.com/allanbranch/status/90766146063712256'>twitter.com/allanbranch/status/&hellip;</a></cite></footer></blockquote>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My Process for updating Octopress Theme]]></title>
@@ -29,34 +39,37 @@ My first post was link-post (see <a href="http://octopress.org/docs/blogging/lin
 
 <p>Long story short I <a href="http://www.candlerblog.com/2012/01/30/octopress-linked-list/">found</a>  what&rsquo;s needed to be changed in the theme to make the post title link to external site.</p>
 
-<p>At this point I do the following:<br/>
-1. Fork the project on Github.<br/>
-2. Change the submodule origin to the forked repo.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  cd /submodule/path  
-</span><span class='line'>  git remote set-url origin https://github.com/[your-user]/[forked-repo].git   </span></code></pre></td></tr></table></div></figure>
-
+<p>At this point I do the following:</p>
 
 <ol>
-<li>Add the original repo of the fork as upstream.</li>
+<li>Fork the project on Github.</li>
+<li>Change the submodule origin to the forked repo:</li>
 </ol>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  cd /submodule/path  
-</span><span class='line'>  git remote add upstream https://github.com/[user-forked-from]/[repo-forked-from].git   </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /submodule/path
+</span><span class='line'><span class="nv">$ </span>git remote <span class="nb">set</span>-url origin https://github.com/<span class="o">[</span>your-user<span class="o">]</span>/<span class="o">[</span>forked-repo<span class="o">]</span>.git
+</span></code></pre></td></tr></table></div></figure>
 
 
 <ol>
-<li>Create a new branch in the submodule (with the name of the change).</li>
+<li><p>Add the original repo of the fork as upstream:</p>
+
+<pre><code>cd /submodule/path  
+git remote add upstream https://github.com/[user-forked-from]/[repo-forked-from].git
+</code></pre></li>
+<li><p>Create a new branch in the submodule with the name of the change (I create a branch for each change that is applied).</p></li>
 <li>Apply the fix / change.</li>
-<li>Commit.</li>
+<li>Commit, Push.</li>
 <li>Pull request back to upstream.</li>
 </ol>
 
+
+<p>To use all the changes done I sometimes create a <code>beta</code> branch and merge all the changes to there.</p>
+
+<p>That way future updates are easy to do</p>
 ]]></content>
   </entry>
   

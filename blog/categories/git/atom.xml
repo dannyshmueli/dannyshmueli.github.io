@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | Danny Shmueli Blog]]></title>
   <link href="http://dannyshmueli.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.github.io/"/>
-  <updated>2014-02-10T01:11:07+02:00</updated>
+  <updated>2014-02-10T20:47:36+02:00</updated>
   <id>http://dannyshmueli.github.io/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -29,22 +29,35 @@ My first post was link-post (see <a href="http://octopress.org/docs/blogging/lin
 
 <p>Long story short I <a href="http://www.candlerblog.com/2012/01/30/octopress-linked-list/">found</a>  what&rsquo;s needed to be changed in the theme to make the post title link to external site.</p>
 
-<p>At this point I do the following:<br/>
-1. Fork the project on Github.<br/>
-2. Change the submodule origin to the forked repo.<br/>
-<code>
-  cd /submodule/path  
-  git remote set-url origin https://github.com/[your-user]/[forked-repo].git   
+<p>At this point I do the following:</p>
+
+<ol>
+<li>Fork the project on Github.</li>
+<li>Change the submodule origin to the forked repo:</li>
+</ol>
+
+
+<p><code>bash
+$ cd /submodule/path
+$ git remote set-url origin https://github.com/[your-user]/[forked-repo].git
 </code>
-3. Add the original repo of the fork as upstream.
-<code>
-  cd /submodule/path  
-  git remote add upstream https://github.com/[user-forked-from]/[repo-forked-from].git   
-</code>
-4. Create a new branch in the submodule (with the name of the change).<br/>
-5. Apply the fix / change. <br/>
-6. Commit.<br/>
-7. Pull request back to upstream.</p>
+3.  Add the original repo of the fork as upstream:</p>
+
+<pre><code>    cd /submodule/path  
+    git remote add upstream https://github.com/[user-forked-from]/[repo-forked-from].git
+</code></pre>
+
+<ol>
+<li>Create a new branch in the submodule with the name of the change (I create a branch for each change that is applied).</li>
+<li>Apply the fix / change.</li>
+<li>Commit, Push.</li>
+<li>Pull request back to upstream.</li>
+</ol>
+
+
+<p>To use all the changes done I sometimes create a <code>beta</code> branch and merge all the changes to there.</p>
+
+<p>That way future updates are easy to do</p>
 ]]></content>
   </entry>
   
