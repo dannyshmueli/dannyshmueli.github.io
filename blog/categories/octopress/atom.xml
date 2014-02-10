@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Danny Shmueli Blog]]></title>
   <link href="http://dannyshmueli.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.github.io/"/>
-  <updated>2014-02-10T20:47:36+02:00</updated>
+  <updated>2014-02-10T21:21:42+02:00</updated>
   <id>http://dannyshmueli.github.io/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -33,31 +33,32 @@ My first post was link-post (see <a href="http://octopress.org/docs/blogging/lin
 
 <ol>
 <li>Fork the project on Github.</li>
-<li>Change the submodule origin to the forked repo:</li>
-</ol>
+<li><p>Change the submodule origin to the forked repo:</p>
 
+<pre><code> $ cd /submodule/path
+ $ git remote set-url origin https://github.com/[your-user]/[forked-repo].git
+</code></pre></li>
+<li><p>Add the original repo of the fork as upstream:</p>
 
-<p><code>bash
-$ cd /submodule/path
-$ git remote set-url origin https://github.com/[your-user]/[forked-repo].git
-</code>
-3.  Add the original repo of the fork as upstream:</p>
-
-<pre><code>    cd /submodule/path  
-    git remote add upstream https://github.com/[user-forked-from]/[repo-forked-from].git
-</code></pre>
-
-<ol>
-<li>Create a new branch in the submodule with the name of the change (I create a branch for each change that is applied).</li>
-<li>Apply the fix / change.</li>
-<li>Commit, Push.</li>
-<li>Pull request back to upstream.</li>
+<pre><code>cd /submodule/path  
+git remote add upstream https://github.com/[user-forked-from]/[repo-forked-from].git
+</code></pre></li>
+<li><p>Create a new branch in the submodule with the name of the change (I create a branch for each change that is applied).</p></li>
+<li><p>Apply the fix / change.</p></li>
+<li><p>Commit, Push.</p></li>
+<li><p>Pull request back to upstream.</p></li>
 </ol>
 
 
 <p>To use all the changes done I sometimes create a <code>beta</code> branch and merge all the changes to there.</p>
 
-<p>That way future updates are easy to do</p>
+<p>That way future updates are easy to do:</p>
+
+<ol>
+<li>Pull changes from <code>upstream</code> remote into (submu) <code>master</code> branch.</li>
+<li>Merge changes from <code>master</code> into your branches.</li>
+</ol>
+
 ]]></content>
   </entry>
   
