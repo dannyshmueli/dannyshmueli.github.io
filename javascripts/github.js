@@ -4,7 +4,7 @@ var github = {
     this._getData();
   },
   _getData: function() {
-    $.getJSON("https://api.github.com/users/"+this.options.user+"/repos?callback=?", $.proxy(this._getDataCallback, this));
+    $.getJSON("https://api.github.com/users/"+this.options.user+"/repos?sort=pushed&callback=?", $.proxy(this._getDataCallback, this));
   },
   _getDataCallback: function(data) {
     var repos = [];
@@ -14,14 +14,6 @@ var github = {
       if (this.options.skip_github_io && data.data[i].name.indexOf("github.io") != -1 ) { continue; }
       repos.push(data.data[i]);
     }
-    repos.sort(function(a, b) {
-      var aDate = new Date(a.pushed_at).valueOf(),
-          bDate = new Date(b.pushed_at).valueOf();
-
-      if (aDate === bDate) { return 0; }
-      return aDate > bDate ? -1 : 1;
-    });
-
     if (this.options.count) { repos.splice(this.options.count); }
     this._render(this.options.target, repos);
   },
