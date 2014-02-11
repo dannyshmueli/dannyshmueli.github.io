@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Shmueli Blog]]></title>
   <link href="http://dannyshmueli.github.io/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.github.io/"/>
-  <updated>2014-02-11T00:52:25+02:00</updated>
+  <updated>2014-02-11T10:57:50+02:00</updated>
   <id>http://dannyshmueli.github.io/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Co-Founder Equity Caclulator]]></title>
+    <link href="http://dannyshmueli.github.io/blog/2014/02/11/co-founder-equity-caclulator/"/>
+    <updated>2014-02-11T10:48:32+02:00</updated>
+    <id>http://dannyshmueli.github.io/blog/2014/02/11/co-founder-equity-caclulator</id>
+    <content type="html"><![CDATA[<p>(suggested equity)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How I setup this blog- Octorpresse Github.io, Custom Domain, theme]]></title>
