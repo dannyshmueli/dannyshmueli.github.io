@@ -3,8 +3,8 @@
 # ----------------------- #
 
 url: http://dannyshmueli.github.io
-title: Danny Shmueli Blog
-subtitle: Objective C, Rails, Tech, Rants.
+title: Danny Shmueli
+subtitle: I'm <em>Danny Shmueli</em> a <em>programmer</em>. 
 author: Danny Shmueli
 simple_search: http://google.com/search
 description: Objective C, Rails, Tech, Rants.
@@ -71,9 +71,9 @@ standard_post_marker:
 
 # Github repositories
 github_user: dannyshmueli
-github_repo_count: 2
-github_show_profile_link: true
-github_skip_forks: true
+github_repo_count: 3
+github_show_profile_link: false
+github_skip_forks: false
 github_skip_github_io: true
 
 # Twitter
