@@ -1,3 +1,3 @@
-rake install['foxslide']
+#rake install['foxslide']
 rake generate
 rake preview
