@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Shmueli]]></title>
   <link href="http://dannyshmueli.github.io/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.github.io/"/>
-  <updated>2014-02-21T13:26:44+02:00</updated>
+  <updated>2014-02-22T20:21:01+02:00</updated>
   <id>http://dannyshmueli.github.io/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Storyboard problems and How Tool By Square (codegenutils) Solves Some]]></title>
+    <link href="http://dannyshmueli.github.io/blog/2014/02/22/using-square-codegenutils/"/>
+    <updated>2014-02-22T16:15:54+02:00</updated>
+    <id>http://dannyshmueli.github.io/blog/2014/02/22/using-square-codegenutils</id>
+    <content type="html"><![CDATA[<p><a href="https://developer.apple.com/library/ios/documentation/general/conceptual/Devpedia-CocoaApp/Storyboard.html">Storyboards</a> are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships.</p>
+
+<h4>Problem: Storyboards fail at runtime, note compile time</h4>
+
+<!-- more -->
+
+
+<p>Using storyboards means also accessing storyboards created items programmatically. Such as:<br/>
+1. Segue identifiers.<br/>
+2. Cell reuse identifiers.<br/>
+3. View Controllers identifiers.<br/>
+When changing an identifier in storyboard, developer should also change the identifier in the code.
+This is prone to error.</p>
+
+<h4>Solution: Auto Generated Constants from Storyboard</h4>
+
+<p><a href="http://squareup.com">Square</a> have <a href="http://corner.squareup.com/2014/02/objc-codegenutils.html">recently wrote</a> in <a href="http://corner.squareup.com">Square Engineering Blog</a> about a new tool they have released: <a href="http://github.com/square/objc-codegenutils">objc-codegenutils</a>. and specifically: <code>objc-identifierconstants</code>.</p>
+
+<p>This &ldquo;generates string identifiers into-compiler checked constants&rdquo;. AKA a file for every storyboard that contains:
+ <code>NSString *const &lt;StoryBoardFileName&gt;MySegueIdentifier</code> or:
+ <code>NSString *const &lt;StoryBoardFileName&gt;MyCellIdentifier</code>.</p>
+
+<p>Using constants avoid typos.</p>
+
+<h4>How:</h4>
+
+<ol>
+<li>Clone the project at <a href="http://github.com/square/objc-codegenutils">objc-codegenutils</a>.</li>
+<li>Open the cloned project.</li>
+<li>Choose <code>identifierconstants</code> as target:<br/>
+<img src="http://dannyshmueli.github.io/images/posts/codegen-22.2.14.png" width="300" alt="alt text" /></li>
+<li>Build and find the built product:<br/>
+<img src="http://dannyshmueli.github.io/images/posts/show-in-finder-22.2.14.png" width="300" alt="alt text" /></li>
+<li>Copy  <code>objc-identifierconstants</code> into your project. (I place under  <code>&lt;ProjectRoot&gt;/objc-codegen-utils/</code>).</li>
+<li><p>Add it as a run script on every build:</p>
+
+<pre><code> objc-codegen-utils/objc-identifierconstants -o ${SRCROOT}/Classes/GeneratedIdentifiers/ ${SRCROOT}/Classes/en.lproj/MainStoryboard.storyboard
+</code></pre>
+
+<p>I output the files into <code>${SRCROOT}/Classes/GeneratedIdentifiers/</code> and <code>${SRCROOT}/Classes/en.lproj/MainStoryboard.storyboard</code> is the path to my storyboard file.</p></li>
+<li>Build your project and add the generated files to the project.</li>
+<li>Replace string identifiers with new constants.</li>
+</ol>
+
+
+<p>No more typos.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[I'm Going to Rails TLV 2014]]></title>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ios | Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.github.io/blog/categories/ios/atom.xml" rel="self"/>
+  <title><![CDATA[Category: xcode | Danny Shmueli]]></title>
+  <link href="http://dannyshmueli.github.io/blog/categories/xcode/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.github.io/"/>
   <updated>2014-02-22T20:21:01+02:00</updated>
   <id>http://dannyshmueli.github.io/</id>
