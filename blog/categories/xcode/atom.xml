@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: xcode | Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.github.io/blog/categories/xcode/atom.xml" rel="self"/>
-  <link href="http://dannyshmueli.github.io/"/>
-  <updated>2014-02-22T20:21:01+02:00</updated>
-  <id>http://dannyshmueli.github.io/</id>
+  <link href="http://dannyshmueli.com/blog/categories/xcode/atom.xml" rel="self"/>
+  <link href="http://dannyshmueli.com/"/>
+  <updated>2014-02-23T14:24:17+02:00</updated>
+  <id>http://dannyshmueli.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Storyboard problems and How Tool By Square (codegenutils) Solves Some]]></title>
-    <link href="http://dannyshmueli.github.io/blog/2014/02/22/using-square-codegenutils/"/>
+    <link href="http://dannyshmueli.com/blog/2014/02/22/using-square-codegenutils/"/>
     <updated>2014-02-22T16:15:54+02:00</updated>
-    <id>http://dannyshmueli.github.io/blog/2014/02/22/using-square-codegenutils</id>
+    <id>http://dannyshmueli.com/blog/2014/02/22/using-square-codegenutils</id>
     <content type="html"><![CDATA[<p><a href="https://developer.apple.com/library/ios/documentation/general/conceptual/Devpedia-CocoaApp/Storyboard.html">Storyboards</a> are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships.</p>
 
 <h4>Problem: Storyboards fail at runtime, note compile time</h4>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: octopress | Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.github.io/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://dannyshmueli.github.io/"/>
-  <updated>2014-02-22T20:21:01+02:00</updated>
-  <id>http://dannyshmueli.github.io/</id>
+  <link href="http://dannyshmueli.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://dannyshmueli.com/"/>
+  <updated>2014-02-23T14:24:17+02:00</updated>
+  <id>http://dannyshmueli.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[My Process for updating Octopress Theme]]></title>
-    <link href="http://dannyshmueli.github.io/blog/2014/02/08/my-process-for-updating-octopress-theme/"/>
+    <link href="http://dannyshmueli.com/blog/2014/02/08/my-process-for-updating-octopress-theme/"/>
     <updated>2014-02-08T21:25:33+02:00</updated>
-    <id>http://dannyshmueli.github.io/blog/2014/02/08/my-process-for-updating-octopress-theme</id>
+    <id>http://dannyshmueli.com/blog/2014/02/08/my-process-for-updating-octopress-theme</id>
     <content type="html"><![CDATA[<p>TLDR: This is my general process of modifying code from Github (or other) that I use (could be an Octopress theme or a <a href="http://cocoapods.org/">cocoapod</a> or any other open source code one might use), all while maintaining the ability to update and contributing back (sometimes)&hellip;</p>
 
 <!-- more -->

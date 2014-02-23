@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: objective-c | Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.github.io/blog/categories/objective-c/atom.xml" rel="self"/>
-  <link href="http://dannyshmueli.github.io/"/>
-  <updated>2014-02-22T20:21:01+02:00</updated>
-  <id>http://dannyshmueli.github.io/</id>
+  <link href="http://dannyshmueli.com/blog/categories/objective-c/atom.xml" rel="self"/>
+  <link href="http://dannyshmueli.com/"/>
+  <updated>2014-02-23T14:24:17+02:00</updated>
+  <id>http://dannyshmueli.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ObjC - Refactoring Animation Code]]></title>
-    <link href="http://dannyshmueli.github.io/blog/2014/02/08/objc-refactoring-animation-code/"/>
+    <link href="http://dannyshmueli.com/blog/2014/02/08/objc-refactoring-animation-code/"/>
     <updated>2014-02-08T20:52:37+02:00</updated>
-    <id>http://dannyshmueli.github.io/blog/2014/02/08/objc-refactoring-animation-code</id>
+    <id>http://dannyshmueli.com/blog/2014/02/08/objc-refactoring-animation-code</id>
     <content type="html"><![CDATA[<p>How to maintain iOS animation code. When to use Core Animations vs UIView Animations.</p>
 ]]></content>
   </entry>
