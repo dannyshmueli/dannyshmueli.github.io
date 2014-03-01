@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Shmueli]]></title>
   <link href="http://dannyshmueli.com/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.com/"/>
-  <updated>2014-02-23T14:24:17+02:00</updated>
+  <updated>2014-03-01T19:37:01+02:00</updated>
   <id>http://dannyshmueli.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sort options while Pull to Refresh]]></title>
+    <link href="http://dannyshmueli.com/blog/2014/03/01/sort-options-while-pull-to-refresh/"/>
+    <updated>2014-03-01T19:31:46+02:00</updated>
+    <id>http://dannyshmueli.com/blog/2014/03/01/sort-options-while-pull-to-refresh</id>
+    <content type="html"><![CDATA[<p>Cool</p>
+
+<iframe src="http://dannyshmueli.com//player.vimeo.com/video/72108265" width="240" height="473" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+<p> <p><a href="http://vimeo.com/72108265">UITableView &ndash; Pull to sort control (Tableview example)</a> from <a href="http://vimeo.com/user20090944">Osagie Zogie</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Storyboard problems and How Tool By Square (codegenutils) Solves Some]]></title>
