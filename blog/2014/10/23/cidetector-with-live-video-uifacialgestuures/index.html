@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>I'm Going to Rails TLV 2014 - Danny Shmueli</title>
+  <title>CIDetector with Live Video - UIFacialGestuures - Danny Shmueli</title>
   <meta name="author" content="Danny Shmueli">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content=" Just paid for the ticket. ">
+  <meta name="description" content="Making Facial Gestures or, Using CIDetector with Streaming Video Since iOS7 Apple introduced new feature to the CIDetector, specifically smile and &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,20 +21,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/">
+  <link rel="canonical" href="http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Danny Shmueli" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Danny Shmueli" />
-  <meta name="og:title" content="I'm Going to Rails TLV 2014" />
-  <meta name="og:description" content=" Just paid for the ticket. " />
-  <meta name="og:url" content="http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/"/>
-  <meta name="url" content="http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/">
+  <meta name="og:title" content="CIDetector with Live Video - UIFacialGestuures" />
+  <meta name="og:description" content="Making Facial Gestures or, Using CIDetector with Streaming Video Since iOS7 Apple introduced new feature to the CIDetector, specifically smile and &hellip;" />
+  <meta name="og:url" content="http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/"/>
+  <meta name="url" content="http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/">
   
-  <meta name="subject" content="railstel-aviv"/>
-  <meta name="category" content="railstel-aviv"/>
+  <meta name="subject" content="iOS"/>
+  <meta name="category" content="iOS"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -90,7 +90,7 @@
   <header>
     
       
-        <h1 class="entry-title"><a href="http://railsisrael2014.events.co.il">&rarr;I'm Going to Rails TLV 2014</a></h1>
+        <h1 class="entry-title">CIDetector With Live Video - UIFacialGestuures</h1>
       
     
     
@@ -116,13 +116,13 @@
   
 
 
-<time datetime="2014-02-16T11:34:54+02:00" pubdate data-updated="true">Feb 16<span>th</span>, 2014</time> - 
+<time datetime="2014-10-23T09:33:31+03:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2014</time> - 
         
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/tel-aviv/'>tel-aviv</a>
+    <a class='category' href='/blog/categories/ios/'>iOS</a>
   
 </span>
 
@@ -135,13 +135,33 @@ posted in
   </header>
 
 
-  <div class="entry-content"><p>Just paid for the ticket.</p>
+  <div class="entry-content"><p>Making Facial Gestures or, Using CIDetector with Streaming Video</p>
+
+<p>Since iOS7 Apple introduced new feature to the CIDetector, specifically smile and blinks detection.</p>
+
+<p>I&rsquo;ve wondered if i could &ldquo;feed&rdquo; it streaming video instead of static image and get make something like a live smile facial gesture be registered as an action on the device.</p>
+
+<p>Here is a demo video of it:</p>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/cdzPRymOC7o" allowfullscreen></iframe></div>
+
+
+<!-- more -->
+
+
+<p>I&rsquo;ve extracted all the logic into an easy to use facade so it can easily be added in any project.
+Have a look at the
+The main issues where:</p>
+
+<ol>
+<li><p>CIDetector is a slow and takes up a lot of CPU</p></li>
+<li><p>Smartley aggregating the feature detection results from the CIDetector until enough features are considered a registered gestured.</p></li>
+</ol>
+
 </div>
 
 
 
-
-  <footer><a rel="full-article" href="">&infin;</a></footer>
 
 
 
@@ -168,13 +188,13 @@ posted in
   
 
 
-<time datetime="2014-02-16T11:34:54+02:00" pubdate data-updated="true">Feb 16<span>th</span>, 2014</time> - 
+<time datetime="2014-10-23T09:33:31+03:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2014</time> - 
       
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/tel-aviv/'>tel-aviv</a>
+    <a class='category' href='/blog/categories/ios/'>iOS</a>
   
 </span>
 
@@ -183,7 +203,7 @@ posted in
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/" data-via="dannyshmueli" data-counturl="http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/" data-via="dannyshmueli" data-counturl="http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/" >Tweet</a>
   
   
   
@@ -191,10 +211,8 @@ posted in
 
     
     
-      <a class="pull-left" href="/blog/2014/02/11/co-founder-equity-caclulator/" title="Previous Post: Co-Founder Equity Caclulator">&laquo; Co-Founder Equity Caclulator</a>
+      <a class="pull-left" href="/blog/2014/05/30/customized-ellipsis-on-uilabel/" title="Previous Post: Customized Ellipsis on UILabel">&laquo; Customized Ellipsis on UILabel</a>
     
-    
-      <a class="pull-right" href="/blog/2014/02/22/using-square-codegenutils/" title="Next Post: Storyboard problems and How Tool By Square (codegenutils) Solves Some">Storyboard problems and How Tool By Square (codegenutils) Solves Some &raquo;</a>
     
   </footer>
 
@@ -308,8 +326,8 @@ posted in
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/';
-        var disqus_url = 'http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/';
+        var disqus_identifier = 'http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/';
+        var disqus_url = 'http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/';
         var disqus_script = 'embed.js';
       
     (function () {

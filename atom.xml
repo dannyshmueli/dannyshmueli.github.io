@@ -4,7 +4,7 @@
   <title><![CDATA[Danny Shmueli]]></title>
   <link href="http://dannyshmueli.com/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.com/"/>
-  <updated>2014-03-01T19:37:01+02:00</updated>
+  <updated>2014-10-23T10:42:11+03:00</updated>
   <id>http://dannyshmueli.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -14,16 +14,100 @@
 
   
   <entry>
+    <title type="html"><![CDATA[CIDetector with Live Video - UIFacialGestuures]]></title>
+    <link href="http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/"/>
+    <updated>2014-10-23T09:33:31+03:00</updated>
+    <id>http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures</id>
+    <content type="html"><![CDATA[<p>Making Facial Gestures or, Using CIDetector with Streaming Video</p>
+
+<p>Since iOS7 Apple introduced new feature to the CIDetector, specifically smile and blinks detection.</p>
+
+<p>I&rsquo;ve wondered if i could &ldquo;feed&rdquo; it streaming video instead of static image and get make something like a live smile facial gesture be registered as an action on the device.</p>
+
+<p>Here is a demo video of it:</p>
+
+<div class="embed-video-container"><iframe src="http://dannyshmueli.com//www.youtube.com/embed/cdzPRymOC7o" allowfullscreen></iframe></div>
+
+
+<!-- more -->
+
+
+<p>I&rsquo;ve extracted all the logic into an easy to use facade so it can easily be added in any project.
+Have a look at the
+The main issues where:</p>
+
+<ol>
+<li><p>CIDetector is a slow and takes up a lot of CPU</p></li>
+<li><p>Smartley aggregating the feature detection results from the CIDetector until enough features are considered a registered gestured.</p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Customized Ellipsis on UILabel]]></title>
+    <link href="http://dannyshmueli.com/blog/2014/05/30/customized-ellipsis-on-uilabel/"/>
+    <updated>2014-05-30T22:25:55+03:00</updated>
+    <id>http://dannyshmueli.com/blog/2014/05/30/customized-ellipsis-on-uilabel</id>
+    <content type="html"><![CDATA[<p><em>Ellipsis (plural ellipses) is a series of dots that usually indicates an intentional omission of a word, sentence, or whole section from a text without altering its original meaning.</em><a href="http://www.thefreedictionary.com/ellipsis">1</a></p>
+
+<p>In UILabel ellipsis &lsquo;&hellip;&rsquo; show up when text is to long to fit in label frame:</p>
+
+<p><img src="http://dannyshmueli.com/images/posts/truncated-label-31.5.14.png" width="400" alt="alt text" /></p>
+
+<p>Currenlty in UILabel there isn&rsquo;t an easy way to customize the ellipses and change them to something like in Appstore reviews:</p>
+
+<p><img src="http://dannyshmueli.com/images/posts/custom-ellipsis-on-appstore-30.5.14.png" width="400" alt="alt text" /></p>
+
+<!-- more -->
+
+
+<h3>Introducing DSExpandingLabelWithCustomEllipsis:</h3>
+
+<p>Inspired by an answer on <a href="http://stackoverflow.com/a/15118452/207682">Stackoverflow</a> &ndash; a) Store the full text for later expanding b) Trim the full text so it will fit in the required number of lines while considering the custom ellipsis.</p>
+
+<p>DSExpandingLabelWithCustomEllipsis attributes:</p>
+
+<ol>
+<li>Using attributed text, for really custom ellipses.</li>
+<li>Finds the trimed text length using binary search.</li>
+<li>Does not use deprecated <code>sizeWithFont</code></li>
+<li>Simple to use.</li>
+</ol>
+
+
+<p>Usage:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">customEllipsisAttributedText</span> <span class="o">=</span> <span class="n">customEllipsis</span><span class="p">;</span>
+</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">loremIpsum</span><span class="p">;</span>
+</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">didExpandBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">(){</span>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;did tap label&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">myExpandingLabel</span> <span class="nl">setTruncatingForNumberOfLines:</span><span class="mi">2</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check it out on Github: <a href="https://github.com/dannyshmueli/DSExpandingLabelWithCustomEllipsis">DSExpandingLabelWithCustomEllipsis</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Sort options while Pull to Refresh]]></title>
     <link href="http://dannyshmueli.com/blog/2014/03/01/sort-options-while-pull-to-refresh/"/>
     <updated>2014-03-01T19:31:46+02:00</updated>
     <id>http://dannyshmueli.com/blog/2014/03/01/sort-options-while-pull-to-refresh</id>
     <content type="html"><![CDATA[<p>Cool</p>
 
-<iframe src="http://dannyshmueli.com//player.vimeo.com/video/72108265" width="240" height="473" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<div class="embed-video-container"><iframe src="http://dannyshmueli.com//player.vimeo.com/video/72108265 "></iframe></div>
 
 
-<p> <p><a href="http://vimeo.com/72108265">UITableView &ndash; Pull to sort control (Tableview example)</a> from <a href="http://vimeo.com/user20090944">Osagie Zogie</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p>
+
 ]]></content>
   </entry>
   

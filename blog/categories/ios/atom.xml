@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ios | Danny Shmueli]]></title>
   <link href="http://dannyshmueli.com/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://dannyshmueli.com/"/>
-  <updated>2014-03-01T19:37:01+02:00</updated>
+  <updated>2014-10-23T10:42:11+03:00</updated>
   <id>http://dannyshmueli.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Customized Ellipsis on UILabel]]></title>
+    <link href="http://dannyshmueli.com/blog/2014/05/30/customized-ellipsis-on-uilabel/"/>
+    <updated>2014-05-30T22:25:55+03:00</updated>
+    <id>http://dannyshmueli.com/blog/2014/05/30/customized-ellipsis-on-uilabel</id>
+    <content type="html"><![CDATA[<p><em>Ellipsis (plural ellipses) is a series of dots that usually indicates an intentional omission of a word, sentence, or whole section from a text without altering its original meaning.</em><a href="http://www.thefreedictionary.com/ellipsis">1</a></p>
+
+<p>In UILabel ellipsis &lsquo;&hellip;&rsquo; show up when text is to long to fit in label frame:</p>
+
+<p><img src="/images/posts/truncated-label-31.5.14.png" width="400" alt="alt text" /></p>
+
+<p>Currenlty in UILabel there isn&rsquo;t an easy way to customize the ellipses and change them to something like in Appstore reviews:</p>
+
+<p><img src="/images/posts/custom-ellipsis-on-appstore-30.5.14.png" width="400" alt="alt text" /></p>
+
+<!-- more -->
+
+
+<h3>Introducing DSExpandingLabelWithCustomEllipsis:</h3>
+
+<p>Inspired by an answer on <a href="http://stackoverflow.com/a/15118452/207682">Stackoverflow</a> &ndash; a) Store the full text for later expanding b) Trim the full text so it will fit in the required number of lines while considering the custom ellipsis.</p>
+
+<p>DSExpandingLabelWithCustomEllipsis attributes:</p>
+
+<ol>
+<li>Using attributed text, for really custom ellipses.</li>
+<li>Finds the trimed text length using binary search.</li>
+<li>Does not use deprecated <code>sizeWithFont</code></li>
+<li>Simple to use.</li>
+</ol>
+
+
+<p>Usage:</p>
+
+<p>```objectivec
+self.myExpandingLabel.customEllipsisAttributedText = customEllipsis;
+self.myExpandingLabel.attributedText = loremIpsum;
+self.myExpandingLabel.didExpandBlock = ^(){</p>
+
+<pre><code>NSLog(@"did tap label");
+</code></pre>
+
+<p>};
+[self.myExpandingLabel setTruncatingForNumberOfLines:2];
+```</p>
+
+<p>Check it out on Github: <a href="https://github.com/dannyshmueli/DSExpandingLabelWithCustomEllipsis">DSExpandingLabelWithCustomEllipsis</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Storyboard problems and How Tool By Square (codegenutils) Solves Some]]></title>
