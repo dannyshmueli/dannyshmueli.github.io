@@ -2,21 +2,18 @@
 #      Main Configs       #
 # ----------------------- #
 
-<<<<<<< HEAD
 url: http://dannyshmueli.com
 title: Danny Shmueli
 subtitle: I'm <em>Danny Shmueli</em> a <em>programmer</em>. 
 author: Danny Shmueli
 simple_search: http://google.com/search
 description: Objective C, Rails, Tech, Rants.
-=======
 url: http://yoursite.com
 title: My Octopress Blog
 subtitle: A blogging framework for hackers.
 author: Your Name
 simple_search: https://www.google.com/search
 description:
->>>>>>> c6c5b74f4d5dc4cc0a34e97c918e0b1a59954a16
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
