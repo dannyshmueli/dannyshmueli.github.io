@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: startups | Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.com/blog/categories/startups/atom.xml" rel="self"/>
-  <link href="http://dannyshmueli.com/"/>
-  <updated>2014-10-25T20:32:00+03:00</updated>
-  <id>http://dannyshmueli.com/</id>
+  <title><![CDATA[Category: startups | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/startups/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-10-25T20:59:04+03:00</updated>
+  <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Danny Shmueli]]></name>
+    <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Co-Founder Equity Caclulator]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/11/co-founder-equity-caclulator/"/>
+    <link href="http://yoursite.com/blog/2014/02/11/co-founder-equity-caclulator/"/>
     <updated>2014-02-11T10:48:32+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/11/co-founder-equity-caclulator</id>
+    <id>http://yoursite.com/blog/2014/02/11/co-founder-equity-caclulator</id>
     <content type="html"><![CDATA[<p>(suggested equity)</p>
 ]]></content>
   </entry>

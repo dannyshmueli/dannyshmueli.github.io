@@ -1,23 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ios | Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.com/blog/categories/ios/atom.xml" rel="self"/>
-  <link href="http://dannyshmueli.com/"/>
-  <updated>2014-10-25T20:32:00+03:00</updated>
-  <id>http://dannyshmueli.com/</id>
+  <title><![CDATA[Category: ios | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-10-25T20:59:04+03:00</updated>
+  <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Danny Shmueli]]></name>
+    <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
+    <title type="html"><![CDATA[CIDetector with Live Video - UIFacialGestuures]]></title>
+    <link href="http://yoursite.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/"/>
+    <updated>2014-10-23T09:33:31+03:00</updated>
+    <id>http://yoursite.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures</id>
+    <content type="html"><![CDATA[<p>Making Facial Gestures or, Using CIDetector with Streaming Video</p>
+
+<p>Since iOS7 Apple introduced new feature to the CIDetector, specifically smile and blinks detection.</p>
+
+<p>I&rsquo;ve wondered if i could &ldquo;feed&rdquo; it streaming video instead of static image and get make something like a live smile facial gesture be registered as an action on the device.</p>
+
+<p>Here is a demo video of it:</p>
+
+<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/cdzPRymOC7o" allowfullscreen></iframe></div></p>
+
+<!-- more -->
+
+
+<p>I&rsquo;ve extracted all the logic into an easy to use facade so it can easily be added in any project.
+Have a look at the
+The main issues where:</p>
+
+<ol>
+<li><p>CIDetector is a slow and takes up a lot of CPU</p></li>
+<li><p>Smartley aggregating the feature detection results from the CIDetector until enough features are considered a registered gestured.</p></li>
+</ol>
+
+
+<p>The code and example project: <a href="https://github.com/dannyshmueli/DSFacialGestureDetector">https://github.com/dannyshmueli/DSFacialGestureDetector</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Customized Ellipsis on UILabel]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/05/30/customized-ellipsis-on-uilabel/"/>
+    <link href="http://yoursite.com/blog/2014/05/30/customized-ellipsis-on-uilabel/"/>
     <updated>2014-05-30T22:25:55+03:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/05/30/customized-ellipsis-on-uilabel</id>
+    <id>http://yoursite.com/blog/2014/05/30/customized-ellipsis-on-uilabel</id>
     <content type="html"><![CDATA[<p><em>Ellipsis (plural ellipses) is a series of dots that usually indicates an intentional omission of a word, sentence, or whole section from a text without altering its original meaning.</em><a href="http://www.thefreedictionary.com/ellipsis">1</a></p>
 
 <p>In UILabel ellipsis &lsquo;&hellip;&rsquo; show up when text is to long to fit in label frame:</p>
@@ -33,7 +65,7 @@
 
 <h3>Introducing DSExpandingLabelWithCustomEllipsis:</h3>
 
-<p>Inspired by an answer on <a href="http://stackoverflow.com/a/15118452/207682">Stackoverflow</a> &ndash; a) Store the full text for later expanding b) Trim the full text so it will fit in the required number of lines while considering the custom ellipsis.</p>
+<p>Inspired by an answer on <a href="http://stackoverflow.com/a/15118452/207682">Stackoverflow</a> - a) Store the full text for later expanding b) Trim the full text so it will fit in the required number of lines while considering the custom ellipsis.</p>
 
 <p>DSExpandingLabelWithCustomEllipsis attributes:</p>
 
@@ -47,17 +79,13 @@
 
 <p>Usage:</p>
 
-<p>```objectivec
-self.myExpandingLabel.customEllipsisAttributedText = customEllipsis;
+<pre><code class="objectivec">self.myExpandingLabel.customEllipsisAttributedText = customEllipsis;
 self.myExpandingLabel.attributedText = loremIpsum;
-self.myExpandingLabel.didExpandBlock = ^(){</p>
-
-<pre><code>NSLog(@"did tap label");
-</code></pre>
-
-<p>};
+self.myExpandingLabel.didExpandBlock = ^(){
+    NSLog(@"did tap label");
+};
 [self.myExpandingLabel setTruncatingForNumberOfLines:2];
-```</p>
+</code></pre>
 
 <p>Check it out on Github: <a href="https://github.com/dannyshmueli/DSExpandingLabelWithCustomEllipsis">DSExpandingLabelWithCustomEllipsis</a></p>
 ]]></content>
@@ -65,9 +93,9 @@ self.myExpandingLabel.didExpandBlock = ^(){</p>
   
   <entry>
     <title type="html"><![CDATA[Storyboard problems and How Tool By Square (codegenutils) Solves Some]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/22/using-square-codegenutils/"/>
+    <link href="http://yoursite.com/blog/2014/02/22/using-square-codegenutils/"/>
     <updated>2014-02-22T16:15:54+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/22/using-square-codegenutils</id>
+    <id>http://yoursite.com/blog/2014/02/22/using-square-codegenutils</id>
     <content type="html"><![CDATA[<p><a href="https://developer.apple.com/library/ios/documentation/general/conceptual/Devpedia-CocoaApp/Storyboard.html">Storyboards</a> are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships.</p>
 
 <h4>Problem: Storyboards fail at runtime, note compile time</h4>
@@ -114,6 +142,15 @@ This is prone to error.</p>
 
 
 <p>No more typos.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ObjC - Refactoring Animation Code]]></title>
+    <link href="http://yoursite.com/blog/2014/02/08/objc-refactoring-animation-code/"/>
+    <updated>2014-02-08T20:52:37+02:00</updated>
+    <id>http://yoursite.com/blog/2014/02/08/objc-refactoring-animation-code</id>
+    <content type="html"><![CDATA[<p>How to maintain iOS animation code. When to use Core Animations vs UIView Animations.</p>
 ]]></content>
   </entry>
   

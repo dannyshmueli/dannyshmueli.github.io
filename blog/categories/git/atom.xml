@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: git | Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.com/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://dannyshmueli.com/"/>
-  <updated>2014-10-25T20:32:00+03:00</updated>
-  <id>http://dannyshmueli.com/</id>
+  <title><![CDATA[Category: git | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-10-25T20:59:04+03:00</updated>
+  <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Danny Shmueli]]></name>
+    <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[My Process for updating Octopress Theme]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/08/my-process-for-updating-octopress-theme/"/>
+    <link href="http://yoursite.com/blog/2014/02/08/my-process-for-updating-octopress-theme/"/>
     <updated>2014-02-08T21:25:33+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/08/my-process-for-updating-octopress-theme</id>
+    <id>http://yoursite.com/blog/2014/02/08/my-process-for-updating-octopress-theme</id>
     <content type="html"><![CDATA[<p>TLDR: This is my general process of modifying code from Github (or other) that I use (could be an Octopress theme or a <a href="http://cocoapods.org/">cocoapod</a> or any other open source code one might use), all while maintaining the ability to update and contributing back (sometimes)&hellip;</p>
 
 <!-- more -->

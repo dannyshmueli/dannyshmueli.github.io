@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: rails | Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.com/blog/categories/rails/atom.xml" rel="self"/>
-  <link href="http://dannyshmueli.com/"/>
-  <updated>2014-10-25T20:32:00+03:00</updated>
-  <id>http://dannyshmueli.com/</id>
+  <title><![CDATA[Category: rails | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-10-25T20:59:04+03:00</updated>
+  <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Danny Shmueli]]></name>
+    <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[I'm Going to Rails TLV 2014]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/"/>
+    <link href="http://yoursite.com/blog/2014/02/16/im-going-to-rails-tlv-2014/"/>
     <updated>2014-02-16T11:34:54+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014</id>
+    <id>http://yoursite.com/blog/2014/02/16/im-going-to-rails-tlv-2014</id>
     <content type="html"><![CDATA[<p>Just paid for the ticket.</p>
 ]]></content>
   </entry>

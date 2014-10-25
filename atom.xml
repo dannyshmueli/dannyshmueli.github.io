@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Danny Shmueli]]></title>
-  <link href="http://dannyshmueli.com/atom.xml" rel="self"/>
-  <link href="http://dannyshmueli.com/"/>
-  <updated>2014-10-25T20:32:00+03:00</updated>
-  <id>http://dannyshmueli.com/</id>
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-10-25T20:59:04+03:00</updated>
+  <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Danny Shmueli]]></name>
+    <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[CIDetector with Live Video - UIFacialGestuures]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/"/>
+    <link href="http://yoursite.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures/"/>
     <updated>2014-10-23T09:33:31+03:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures</id>
+    <id>http://yoursite.com/blog/2014/10/23/cidetector-with-live-video-uifacialgestuures</id>
     <content type="html"><![CDATA[<p>Making Facial Gestures or, Using CIDetector with Streaming Video</p>
 
 <p>Since iOS7 Apple introduced new feature to the CIDetector, specifically smile and blinks detection.</p>
@@ -26,7 +26,7 @@
 
 <p>Here is a demo video of it:</p>
 
-<div class="embed-video-container"><iframe src="http://dannyshmueli.com//www.youtube.com/embed/cdzPRymOC7o" allowfullscreen></iframe></div>
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/cdzPRymOC7o" allowfullscreen></iframe></div>
 
 
 <!-- more -->
@@ -48,25 +48,25 @@ The main issues where:</p>
   
   <entry>
     <title type="html"><![CDATA[Customized Ellipsis on UILabel]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/05/30/customized-ellipsis-on-uilabel/"/>
+    <link href="http://yoursite.com/blog/2014/05/30/customized-ellipsis-on-uilabel/"/>
     <updated>2014-05-30T22:25:55+03:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/05/30/customized-ellipsis-on-uilabel</id>
+    <id>http://yoursite.com/blog/2014/05/30/customized-ellipsis-on-uilabel</id>
     <content type="html"><![CDATA[<p><em>Ellipsis (plural ellipses) is a series of dots that usually indicates an intentional omission of a word, sentence, or whole section from a text without altering its original meaning.</em><a href="http://www.thefreedictionary.com/ellipsis">1</a></p>
 
 <p>In UILabel ellipsis &lsquo;&hellip;&rsquo; show up when text is to long to fit in label frame:</p>
 
-<p><img src="http://dannyshmueli.com/images/posts/truncated-label-31.5.14.png" width="400" alt="alt text" /></p>
+<p><img src="http://yoursite.com/images/posts/truncated-label-31.5.14.png" width="400" alt="alt text" /></p>
 
 <p>Currenlty in UILabel there isn&rsquo;t an easy way to customize the ellipses and change them to something like in Appstore reviews:</p>
 
-<p><img src="http://dannyshmueli.com/images/posts/custom-ellipsis-on-appstore-30.5.14.png" width="400" alt="alt text" /></p>
+<p><img src="http://yoursite.com/images/posts/custom-ellipsis-on-appstore-30.5.14.png" width="400" alt="alt text" /></p>
 
 <!-- more -->
 
 
 <h3>Introducing DSExpandingLabelWithCustomEllipsis:</h3>
 
-<p>Inspired by an answer on <a href="http://stackoverflow.com/a/15118452/207682">Stackoverflow</a> &ndash; a) Store the full text for later expanding b) Trim the full text so it will fit in the required number of lines while considering the custom ellipsis.</p>
+<p>Inspired by an answer on <a href="http://stackoverflow.com/a/15118452/207682">Stackoverflow</a> - a) Store the full text for later expanding b) Trim the full text so it will fit in the required number of lines while considering the custom ellipsis.</p>
 
 <p>DSExpandingLabelWithCustomEllipsis attributes:</p>
 
@@ -101,12 +101,12 @@ The main issues where:</p>
   
   <entry>
     <title type="html"><![CDATA[Sort options while Pull to Refresh]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/03/01/sort-options-while-pull-to-refresh/"/>
+    <link href="http://yoursite.com/blog/2014/03/01/sort-options-while-pull-to-refresh/"/>
     <updated>2014-03-01T19:31:46+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/03/01/sort-options-while-pull-to-refresh</id>
+    <id>http://yoursite.com/blog/2014/03/01/sort-options-while-pull-to-refresh</id>
     <content type="html"><![CDATA[<p>Cool</p>
 
-<div class="embed-video-container"><iframe src="http://dannyshmueli.com//player.vimeo.com/video/72108265 "></iframe></div>
+<div class="embed-video-container"><iframe src="//player.vimeo.com/video/72108265 "></iframe></div>
 
 
 
@@ -115,9 +115,9 @@ The main issues where:</p>
   
   <entry>
     <title type="html"><![CDATA[Storyboard problems and How Tool By Square (codegenutils) Solves Some]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/22/using-square-codegenutils/"/>
+    <link href="http://yoursite.com/blog/2014/02/22/using-square-codegenutils/"/>
     <updated>2014-02-22T16:15:54+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/22/using-square-codegenutils</id>
+    <id>http://yoursite.com/blog/2014/02/22/using-square-codegenutils</id>
     <content type="html"><![CDATA[<p><a href="https://developer.apple.com/library/ios/documentation/general/conceptual/Devpedia-CocoaApp/Storyboard.html">Storyboards</a> are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships.</p>
 
 <h4>Problem: Storyboards fail at runtime, note compile time</h4>
@@ -148,9 +148,9 @@ This is prone to error.</p>
 <li>Clone the project at <a href="http://github.com/square/objc-codegenutils">objc-codegenutils</a>.</li>
 <li>Open the cloned project.</li>
 <li>Choose <code>identifierconstants</code> as target:<br/>
-<img src="http://dannyshmueli.com/images/posts/codegen-22.2.14.png" width="300" alt="alt text" /></li>
+<img src="http://yoursite.com/images/posts/codegen-22.2.14.png" width="300" alt="alt text" /></li>
 <li>Build and find the built product:<br/>
-<img src="http://dannyshmueli.com/images/posts/show-in-finder-22.2.14.png" width="300" alt="alt text" /></li>
+<img src="http://yoursite.com/images/posts/show-in-finder-22.2.14.png" width="300" alt="alt text" /></li>
 <li>Copy  <code>objc-identifierconstants</code> into your project. (I place under  <code>&lt;ProjectRoot&gt;/objc-codegen-utils/</code>).</li>
 <li><p>Add it as a run script on every build:</p>
 
@@ -169,27 +169,27 @@ This is prone to error.</p>
   
   <entry>
     <title type="html"><![CDATA[I'm Going to Rails TLV 2014]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014/"/>
+    <link href="http://yoursite.com/blog/2014/02/16/im-going-to-rails-tlv-2014/"/>
     <updated>2014-02-16T11:34:54+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/16/im-going-to-rails-tlv-2014</id>
+    <id>http://yoursite.com/blog/2014/02/16/im-going-to-rails-tlv-2014</id>
     <content type="html"><![CDATA[<p>Just paid for the ticket.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Co-Founder Equity Caclulator]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/11/co-founder-equity-caclulator/"/>
+    <link href="http://yoursite.com/blog/2014/02/11/co-founder-equity-caclulator/"/>
     <updated>2014-02-11T10:48:32+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/11/co-founder-equity-caclulator</id>
+    <id>http://yoursite.com/blog/2014/02/11/co-founder-equity-caclulator</id>
     <content type="html"><![CDATA[<p>(suggested equity)</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[How I setup this blog- Octorpresse Github.io, Custom Domain, theme]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/10/how-i-setup-this-blog-octorpress/"/>
+    <link href="http://yoursite.com/blog/2014/02/10/how-i-setup-this-blog-octorpress/"/>
     <updated>2014-02-10T11:06:33+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/10/how-i-setup-this-blog-octorpress</id>
+    <id>http://yoursite.com/blog/2014/02/10/how-i-setup-this-blog-octorpress</id>
     <content type="html"><![CDATA[<p>This blog is:</p>
 
 <ul>
@@ -208,7 +208,7 @@ This is prone to error.</p>
 <ul>
 <li>To install Octopress follow this: <a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></li>
 <li>Connect Octopress to github.io: <a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a></li>
-<li>To configure namecheap with your top level domain &ndash; I use this: <a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">Setting the DNS for GitHub Pages on Namecheap</a> by <a href="http://davidensinger.com/">David Ensinger</a>.</li>
+<li>To configure namecheap with your top level domain - I use this: <a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">Setting the DNS for GitHub Pages on Namecheap</a> by <a href="http://davidensinger.com/">David Ensinger</a>.</li>
 </ul>
 
 
@@ -223,9 +223,9 @@ This is prone to error.</p>
   
   <entry>
     <title type="html"><![CDATA[My Process for updating Octopress Theme]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/08/my-process-for-updating-octopress-theme/"/>
+    <link href="http://yoursite.com/blog/2014/02/08/my-process-for-updating-octopress-theme/"/>
     <updated>2014-02-08T21:25:33+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/08/my-process-for-updating-octopress-theme</id>
+    <id>http://yoursite.com/blog/2014/02/08/my-process-for-updating-octopress-theme</id>
     <content type="html"><![CDATA[<p>TLDR: This is my general process of modifying code from Github (or other) that I use (could be an Octopress theme or a <a href="http://cocoapods.org/">cocoapod</a> or any other open source code one might use), all while maintaining the ability to update and contributing back (sometimes)&hellip;</p>
 
 <!-- more -->
@@ -272,9 +272,9 @@ git remote add upstream https://github.com/[user-forked-from]/[repo-forked-from]
   
   <entry>
     <title type="html"><![CDATA[ObjC - Refactoring Animation Code]]></title>
-    <link href="http://dannyshmueli.com/blog/2014/02/08/objc-refactoring-animation-code/"/>
+    <link href="http://yoursite.com/blog/2014/02/08/objc-refactoring-animation-code/"/>
     <updated>2014-02-08T20:52:37+02:00</updated>
-    <id>http://dannyshmueli.com/blog/2014/02/08/objc-refactoring-animation-code</id>
+    <id>http://yoursite.com/blog/2014/02/08/objc-refactoring-animation-code</id>
     <content type="html"><![CDATA[<p>How to maintain iOS animation code. When to use Core Animations vs UIView Animations.</p>
 ]]></content>
   </entry>
