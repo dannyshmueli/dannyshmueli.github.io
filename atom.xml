@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Danny Shmueli]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-10-25T20:59:04+03:00</updated>
+  <updated>2014-11-22T18:16:56+02:00</updated>
   <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Danny Shmueli]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -86,12 +86,12 @@ The main issues where:</p>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">customEllipsisAttributedText</span> <span class="o">=</span> <span class="n">customEllipsis</span><span class="p">;</span>
-</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">loremIpsum</span><span class="p">;</span>
-</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">didExpandBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">(){</span>
+</pre></td><td class='code'><pre><code class='objectivec'><span class='line'><span class="nb">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">customEllipsisAttributedText</span> <span class="o">=</span> <span class="n">customEllipsis</span><span class="p">;</span>
+</span><span class='line'><span class="nb">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">loremIpsum</span><span class="p">;</span>
+</span><span class='line'><span class="nb">self</span><span class="p">.</span><span class="n">myExpandingLabel</span><span class="p">.</span><span class="n">didExpandBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">(){</span>
 </span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;did tap label&quot;</span><span class="p">);</span>
 </span><span class='line'><span class="p">};</span>
-</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">myExpandingLabel</span> <span class="nl">setTruncatingForNumberOfLines:</span><span class="mi">2</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">myExpandingLabel</span> <span class="nl">setTruncatingForNumberOfLines</span><span class="p">:</span><span class="mi">2</span><span class="p">];</span>
 </span></code></pre></td></tr></table></div></figure>
 
 

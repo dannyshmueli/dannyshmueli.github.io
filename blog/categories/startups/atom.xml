@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: startups | My Octopress Blog]]></title>
+  <title><![CDATA[Category: startups | Danny Shmueli]]></title>
   <link href="http://yoursite.com/blog/categories/startups/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-10-25T20:59:04+03:00</updated>
+  <updated>2014-11-22T18:16:56+02:00</updated>
   <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Danny Shmueli]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
