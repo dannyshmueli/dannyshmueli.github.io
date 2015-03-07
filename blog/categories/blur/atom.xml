@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: blur | Danny Shmueli]]></title>
+  <link href="http://yoursite.com/blog/categories/blur/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-03-08T00:32:06+02:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Danny Shmueli]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Interface Builder And Blur With Vibrancy]]></title>
+    <link href="http://yoursite.com/blog/2015/03/07/interface-builder-and-blur-with-vibrancy/"/>
+    <updated>2015-03-07T21:53:56+02:00</updated>
+    <id>http://yoursite.com/blog/2015/03/07/interface-builder-and-blur-with-vibrancy</id>
+    <content type="html"><![CDATA[<p><img src="/images/posts/lock-screen-wall-7.3.15.png" width="340" alt="alt text" />
+iOS lock screen passcode is a good example of vibrancy (the circle around the digits).</p>
+
+<p>Making blur effect with vibrancy in interface builder is easy using:<!-- more --> &ldquo;Visual Effect Views With and Vibrancy&rdquo;:</p>
+
+<p><img src="/images/posts/visual-effect-from-library-7.3.15.png" width="290" alt="alt text" /></p>
+
+<p>After dragging to interface builder the view hierarchy should be like this:</p>
+
+<p><img src="/images/posts/view-hierarchy-7.3.15.png" width="450" alt="alt text" /></p>
+
+<p>(i renamed the views to reflect what they actually are).</p>
+
+<p>Here is an example i made:
+<img src="/images/posts/blur-and-vibrancy-myexample-7.3.15.png" width="450" alt="alt text" /></p>
+
+<h3>Pros</h3>
+
+<ul>
+<li>using interface builder we all so love <del>and hate</del>.</li>
+</ul>
+
+
+<h3>Caveats</h3>
+
+<ul>
+<li>Views have to be seperated from their original hierarchy. In the example above the labels should have background view (one vibrant and one regular) but to make the vibrant background I had to place the background view inside the vibrant view, this means also re-creating the layout constraints for the background view.</li>
+</ul>
+
+
+<p>Example code here: <a href="https://github.com/dannyshmueli/blur-with-ib">blur-with-ib</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Danny Shmueli]]></title>
   <link href="http://yoursite.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-02-09T11:45:22+02:00</updated>
+  <updated>2015-03-08T00:32:06+02:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How I setup this blog- Octorpresse Github.io, Custom Domain, theme]]></title>
+    <link href="http://yoursite.com/blog/2014/02/10/how-i-setup-this-blog-octorpress/"/>
+    <updated>2014-02-10T11:06:33+02:00</updated>
+    <id>http://yoursite.com/blog/2014/02/10/how-i-setup-this-blog-octorpress</id>
+    <content type="html"><![CDATA[<p>This blog is:</p>
+
+<ul>
+<li>Running <a href="http://octopress.org">Octopress</a></li>
+<li>Hosted on <a href="http://github.io">github.io</a> with <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">custom domain options</a></li>
+<li>Setup the DNS entries using <a href="http://namecheap.com">namecheap</a></li>
+<li>Installed this theme: <a href="https://github.com/sevenadrian/foxslide">foxslide</a></li>
+</ul>
+
+
+<p>All for the price of registering the domain at Goaddy.</p>
+
+<!-- more -->
+
+
+<ul>
+<li>To install Octopress follow this: <a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></li>
+<li>Connect Octopress to github.io: <a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a></li>
+<li>To configure namecheap with your top level domain - I use this: <a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">Setting the DNS for GitHub Pages on Namecheap</a> by <a href="http://davidensinger.com/">David Ensinger</a>.</li>
+</ul>
+
+
+<p>Also useful:</p>
+
+<ul>
+<li><a href="http://blog.revolunet.com/blog/2013/04/15/octopress-cheatsheet/">Octopress Cheatsheet</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My Process for updating Octopress Theme]]></title>
