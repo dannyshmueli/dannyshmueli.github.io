@@ -4,7 +4,7 @@
   <title><![CDATA[Category: interface-builder | Danny Shmueli]]></title>
   <link href="http://yoursite.com/blog/categories/interface-builder/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-03-08T00:32:06+02:00</updated>
+  <updated>2015-03-08T00:33:50+02:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p><img src="/images/posts/lock-screen-wall-7.3.15.png" width="340" alt="alt text" />
 iOS lock screen passcode is a good example of vibrancy (the circle around the digits).</p>
 
-<p>Making blur effect with vibrancy in interface builder is easy using:<!-- more --> &ldquo;Visual Effect Views With and Vibrancy&rdquo;:</p>
+<p>Making blur effect with vibrancy in interface builder is easy using: &ldquo;Visual Effect Views With and Vibrancy&rdquo;:<!-- more --></p>
 
 <p><img src="/images/posts/visual-effect-from-library-7.3.15.png" width="290" alt="alt text" /></p>
 
