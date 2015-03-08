@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ios | Danny Shmueli]]></title>
   <link href="http://yoursite.com/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-03-08T00:33:50+02:00</updated>
+  <updated>2015-03-08T09:24:17+02:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[Danny Shmueli]]></name>
@@ -44,7 +44,7 @@ iOS lock screen passcode is a good example of vibrancy (the circle around the di
 <h3>Caveats</h3>
 
 <ul>
-<li>Views have to be seperated from their original hierarchy. In the example above the labels should have background view (one vibrant and one regular) but to make the vibrant background I had to place the background view inside the vibrant view, this means also re-creating the layout constraints for the background view.</li>
+<li>Views have to be seperated from their original hierarchy. In the example above the labels should have background view (one vibrant and one regular) but to make the vibrant background I had to place the background view inside the vibrant view, this means also re-creating the layout constraints for the background view. - If you think there is a better way around this please comment or email me.</li>
 </ul>
 
 
