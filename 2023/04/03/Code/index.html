@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>I Wrote My First Chrome Extension Without a Single Line of Code | Danny Shmueli</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A colleague recently asked me if I knew of a QA tool that could check whether a coordinate was within a polygon. I replied that I didn’t, but suggested we try to build a tool like that with ChatGPT. I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I Wrote My First Chrome Extension Without a Single Line of Code">
+<meta property="og:url" content="http://dannyshmueli.com/2023/04/03/Code/index.html">
+<meta property="og:site_name" content="Danny Shmueli">
+<meta property="og:description" content="A colleague recently asked me if I knew of a QA tool that could check whether a coordinate was within a polygon. I replied that I didn’t, but suggested we try to build a tool like that with ChatGPT. I">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://dannyshmueli.com/2023/04/03/Code/polygon_checker_screenshot.png">
+<meta property="og:image" content="http://dannyshmueli.com/2023/04/03/Code/improving_the_polygon_input.png">
+<meta property="og:image" content="http://dannyshmueli.com/2023/04/03/Code/removing_permission.png">
+<meta property="article:published_time" content="2023-04-03T18:56:00.000Z">
+<meta property="article:modified_time" content="2023-04-03T18:50:58.929Z">
+<meta property="article:author" content="Danny Shmueli">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://dannyshmueli.com/2023/04/03/Code/polygon_checker_screenshot.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Danny Shmueli" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Danny Shmueli</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://dannyshmueli.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Code" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/03/Code/" class="article-date">
+  <time class="dt-published" datetime="2023-04-03T18:56:00.000Z" itemprop="datePublished">2023-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ChatGPT/">ChatGPT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      I Wrote My First Chrome Extension Without a Single Line of Code
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>A colleague recently asked me if I knew of a QA tool that could check whether a coordinate was within a polygon. I replied that I didn’t, but suggested we try to build a tool like that with ChatGPT.</p>
+<p>In this blog post, I will detail how I built a Chrome extension using ChatGPT without writing a single line of code, only following instructions and copy-pasting, despite having no prior experience in creating a Chrome app.</p>
+<p>Read the full ChatGPT transcript <a target="_blank" rel="noopener" href="https://sharegpt.com/c/KTIUmFy">here</a></p>
+<p>Get it from Chrome Store: (Link will be posted after app approved)</p>
+<p>Download it from <a target="_blank" rel="noopener" href="https://github.com/dannyshmueli/polygon-checker">Github</a></p>
+<p><img src="/2023/04/03/Code/polygon_checker_screenshot.png" alt="Polygon Checker screenshot" title="Polygon Checker screenshot"></p>
+<span id="more"></span>
+
+<h2 id="The-Idea"><a href="#The-Idea" class="headerlink" title="The Idea"></a>The Idea</h2><p>The goal was to build a Chrome extension using ChatGPT that could take a list of coordinates on a map (polygon) and a single map coordinate as input, and then output whether the single coordinate was within the polygon or not.</p>
+<h2 id="The-Process"><a href="#The-Process" class="headerlink" title="The Process"></a>The Process</h2><p>I began by explaining my idea to ChatGPT 3.5, a large language model trained by OpenAI. ChatGPT understood my requirements and provided me with the necessary guidance and code to build the Chrome extension.</p>
+<p>The process was straightforward. ChatGPT walked me through the steps of setting up a manifest file, a popup.html file, and a JavaScript file to handle the extension logic. It also helped with debugging and fixing issues, such as the result disappearing too quickly.</p>
+<p>The first version of the extension didn’t look right—for example, the polygon input field was too small. So, I asked ChatGPT to increase the input size, and together we created a user-friendly UI for the extension. See the screenshot below:<br><img src="/2023/04/03/Code/improving_the_polygon_input.png" alt="improving the polygon input" title="improve polygon input"></p>
+<p>I noticed that the manifest file had unnecessary privileges, so I asked ChatGPT about them and why they were needed. ChatGPT agreed that they could be removed. See the screenshot below:<br><img src="/2023/04/03/Code/removing_permission.png" alt="Removing unneeded permission" title="remove permission"></p>
+<p>ChatGPT did not output a good SVG icon for the project—perhaps using GPT-4 would have done it better.</p>
+<p>Surprisingly, ChatGPT even wrote the Github readme.md for the project, which I submitted as is.</p>
+<p>##Reflections on AI Collaboration<br>Working closely with ChatGPT during this project has offered me a unique perspective on the potential of AI collaboration in product management. In particular, I’d like to highlight a few key insights I gained from this experience:</p>
+<h3 id="Accelerating-development"><a href="#Accelerating-development" class="headerlink" title="Accelerating development"></a>Accelerating development</h3><p>The speed at which we were able to move through the various stages of building the Chrome extension was remarkable. ChatGPT’s ability to quickly provide accurate guidance, code snippets, and solutions to issues significantly reduced the time it took to develop the extension.</p>
+<h3 id="Bridging-the-knowledge-gap"><a href="#Bridging-the-knowledge-gap" class="headerlink" title="Bridging the knowledge gap"></a>Bridging the knowledge gap</h3><p>I’ve never before developed a Chrome Extension before. However, ChatGPT helped bridge this gap by walking me through the process step by step, enabling me to build a functional Chrome extension despite my limited technical background.</p>
+<h3 id="Enhancing-creativity"><a href="#Enhancing-creativity" class="headerlink" title="Enhancing creativity"></a>Enhancing creativity</h3><p>AI collaboration allowed me to focus more on the creative aspects of the project, such as refining the user interface and brainstorming potential use cases. With ChatGPT handling the technical details, I could devote more time and energy to enhancing the overall user experience.</p>
+<h3 id="Potential-challenges"><a href="#Potential-challenges" class="headerlink" title="Potential challenges"></a>Potential challenges</h3><p>Despite the many benefits of AI collaboration, there were occasional challenges. For instance, the SVG icon generated by ChatGPT was not satisfactory. This highlights the importance of human oversight and the need for AI models to continue evolving in order to tackle a wider range of tasks effectively.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Working on this project felt like collaborating with a co-worker, as we iterated together to improve the outcome.</p>
+<p>This experience has shown me how AI technology can empower people to create and innovate, regardless of their technical expertise.</p>
+<p>As ChatGPT and other language models evolve, I can only imagine how they will revolutionize software engineering, enabling more people to build amazing products and tools. </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://dannyshmueli.com/2023/04/03/Code/" data-id="clg182ryf00054js96s5bhwes" data-title="I Wrote My First Chrome Extension Without a Single Line of Code" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/09/05/transition-to-product-management/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">My Journey from Senior Developer to Product Manager</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ChatGPT/">ChatGPT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/git/octopress/">octopress</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ios/xcode/">xcode</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/personal/">personal</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/03/Code/">I Wrote My First Chrome Extension Without a Single Line of Code</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/05/transition-to-product-management/">My Journey from Senior Developer to Product Manager</a>
+          </li>
+        
+          <li>
+            <a href="/2014/03/01/sort-options-while-pull-to-refresh/">Sort options while Pull to Refresh</a>
+          </li>
+        
+          <li>
+            <a href="/2014/02/22/using-square-codegenutils/">Storyboard problems and How a Square Solves it (codegenutils) Solves Some</a>
+          </li>
+        
+          <li>
+            <a href="/2014/02/08/my-process-for-updating-octopress-theme/">My Process for updating Octopress Theme</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Danny Shmueli<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
