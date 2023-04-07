@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Danny Shmueli","sameAs":["https://github.com/dannyshmueli","https://stackoverflow.com/users/207682/ugiflezet","https://twitter.com/dannyshmueli","https://www.linkedin.com/in/dannyshmueli/"],"image":"me-circle2.png"},"articleBody":"Storyboards are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships.\n####Problem: Storyboards fail at runtime, note compile time\n\nUsing storyboards means also accessing storyboards created items programmatically. Such as:  \n\nSegue identifiers.  \nCell reuse identifiers.  \nView Controllers identifiers.When changing an identifier in storyboard, developer should also change the identifier in the code.This is prone to error.\n\n####Solution: Auto Generated Constants from StoryboardSquare have recently wrote in Square Engineering Blog about a new tool they have released: objc-codegenutils. and specifically: objc-identifierconstants.\nThis “generates string identifiers into-compiler checked constants”. AKA a file for every storyboard that contains: NSString *const &lt;StoryBoardFileName&gt;MySegueIdentifier or: NSString *const &lt;StoryBoardFileName&gt;MyCellIdentifier.\nUsing constants avoid typos.\n####How:\n\nClone the project at objc-codegenutils.\n\nOpen the cloned project.\n\nChoose identifierconstants as target:![alt text](&#x2F;images&#x2F;posts&#x2F;codegen-22.2.14.png  &#x3D;300x)\n\nBuild and find the built product:![alt text](&#x2F;images&#x2F;posts&#x2F;show-in-finder-22.2.14.png  &#x3D;300x) \n\nCopy  objc-identifierconstants into your project. (I place under  &lt;ProjectRoot&gt;/objc-codegen-utils/).\n\nAdd it as a run script on every build:\n objc-codegen-utils/objc-identifierconstants -o $&#123;SRCROOT&#125;/Classes/GeneratedIdentifiers/ $&#123;SRCROOT&#125;/Classes/en.lproj/MainStoryboard.storyboard\n\n\n\nI output the files into $&#123;SRCROOT&#125;/Classes/GeneratedIdentifiers/ and $&#123;SRCROOT&#125;/Classes/en.lproj/MainStoryboard.storyboard is the path to my storyboard file.7. Build your project and add the generated files to the project.8. Replace string identifiers with new constants.\nNo more typos.\n","dateCreated":"2014-02-22T16:15:54+02:00","dateModified":"2023-04-03T22:25:58+03:00","datePublished":"2014-02-22T16:15:54+02:00","description":"Storyboards are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships.\n####Problem: Storyboards fail at runtime, note compile time","headline":"Storyboard problems and How a Square Solves it (codegenutils) Solves Some","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://dannyshmueli.com/2014/02/22/using-square-codegenutils/"},"publisher":{"@type":"Organization","name":"Danny Shmueli","sameAs":["https://github.com/dannyshmueli","https://stackoverflow.com/users/207682/ugiflezet","https://twitter.com/dannyshmueli","https://www.linkedin.com/in/dannyshmueli/"],"image":"me-circle2.png","logo":{"@type":"ImageObject","url":"me-circle2.png"}},"url":"https://dannyshmueli.com/2014/02/22/using-square-codegenutils/"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Danny Shmueli","sameAs":["https://www.linkedin.com/in/dannyshmueli/","https://twitter.com/dannyshmueli","https://github.com/dannyshmueli","https://stackoverflow.com/users/207682/ugiflezet"],"image":"me-circle2.png"},"articleBody":"Storyboards are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships.\n####Problem: Storyboards fail at runtime, note compile time\n\nUsing storyboards means also accessing storyboards created items programmatically. Such as:  \n\nSegue identifiers.  \nCell reuse identifiers.  \nView Controllers identifiers.When changing an identifier in storyboard, developer should also change the identifier in the code.This is prone to error.\n\n####Solution: Auto Generated Constants from StoryboardSquare have recently wrote in Square Engineering Blog about a new tool they have released: objc-codegenutils. and specifically: objc-identifierconstants.\nThis “generates string identifiers into-compiler checked constants”. AKA a file for every storyboard that contains: NSString *const &lt;StoryBoardFileName&gt;MySegueIdentifier or: NSString *const &lt;StoryBoardFileName&gt;MyCellIdentifier.\nUsing constants avoid typos.\n####How:\n\nClone the project at objc-codegenutils.\n\nOpen the cloned project.\n\nChoose identifierconstants as target:![alt text](&#x2F;images&#x2F;posts&#x2F;codegen-22.2.14.png  &#x3D;300x)\n\nBuild and find the built product:![alt text](&#x2F;images&#x2F;posts&#x2F;show-in-finder-22.2.14.png  &#x3D;300x) \n\nCopy  objc-identifierconstants into your project. (I place under  &lt;ProjectRoot&gt;/objc-codegen-utils/).\n\nAdd it as a run script on every build:\n objc-codegen-utils/objc-identifierconstants -o $&#123;SRCROOT&#125;/Classes/GeneratedIdentifiers/ $&#123;SRCROOT&#125;/Classes/en.lproj/MainStoryboard.storyboard\n\n\n\nI output the files into $&#123;SRCROOT&#125;/Classes/GeneratedIdentifiers/ and $&#123;SRCROOT&#125;/Classes/en.lproj/MainStoryboard.storyboard is the path to my storyboard file.7. Build your project and add the generated files to the project.8. Replace string identifiers with new constants.\nNo more typos.\n","dateCreated":"2014-02-22T16:15:54+02:00","dateModified":"2023-04-03T22:25:58+03:00","datePublished":"2014-02-22T16:15:54+02:00","description":"Storyboards are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships.\n####Problem: Storyboards fail at runtime, note compile time","headline":"Storyboard problems and How a Square Solves it (codegenutils) Solves Some","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://dannyshmueli.com/2014/02/22/using-square-codegenutils/"},"publisher":{"@type":"Organization","name":"Danny Shmueli","sameAs":["https://www.linkedin.com/in/dannyshmueli/","https://twitter.com/dannyshmueli","https://github.com/dannyshmueli","https://stackoverflow.com/users/207682/ugiflezet"],"image":"me-circle2.png","logo":{"@type":"ImageObject","url":"me-circle2.png"}},"url":"https://dannyshmueli.com/2014/02/22/using-square-codegenutils/"}</script>
     <meta name="description" content="Storyboards are great to use, save time and allows developers to visualise the whole (or part) of app, in terms of screen relationships. ####Problem: Storyboards fail at runtime, note compile time">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Storyboard problems and How a Square Solves it (codegenutils) Solves Some">
@@ -36,7 +36,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-06wckzueth38rz24fldrfnyzlpdknuf1nljbnldcajhvhesvlw84yby0anu0.min.css">
+<link rel="stylesheet" href="/assets/css/style-e1y6byc8vv9qjgkhlh5upm2yhytliz12yqoqwsktbbxasmlk9uvdk89xmphi.min.css">
 
     <!--STYLES END-->
     
@@ -157,6 +157,38 @@
                     
                         <a
                             class="sidebar-button-link "
+                            href="https://www.linkedin.com/in/dannyshmueli/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="LinkedIn"
+                        >
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://twitter.com/dannyshmueli"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Twitter"
+                        >
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
                             href="https://github.com/dannyshmueli"
                             
                                 target="_blank"
@@ -182,38 +214,6 @@
                         >
                         <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">Stack Overflow</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="https://twitter.com/dannyshmueli"
-                            
-                                target="_blank"
-                            
-                            rel="noopener"
-                            title="Twitter"
-                        >
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="https://www.linkedin.com/in/dannyshmueli/"
-                            
-                                target="_blank"
-                            
-                            rel="noopener"
-                            title="LinkedIn"
-                        >
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
                     </a>
             </li>
             
@@ -560,7 +560,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-ruyxu16a2dajd8evzymdigjs1jdsewri2bqweugevddbefjkk0obimzfhebc.min.js"></script>
+<script src="/assets/js/script-4kgohkfxip4yioqhlaoma9qedslmuwtltl4a62j0mlcufydoni5tvq0yubhz.min.js"></script>
 
 <!--SCRIPTS END-->
 
