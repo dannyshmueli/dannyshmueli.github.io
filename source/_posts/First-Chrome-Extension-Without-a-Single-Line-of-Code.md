@@ -3,11 +3,11 @@ layout: post
 title: "I Wrote My First Chrome Extension Without a Single Line of Code"
 date: 2023-04-03 00:00:00 +0300
 categories: ChatGPT
+index_img: /img/polygon-checker/chrome-extension-using-chatgpt.jpeg
 tags:
   - chrome extension
   - ChatGPT
   - no-code
-  - polygon-checker
 ---
 
 A colleague recently asked me if I knew of a QA tool that could check whether a coordinate was within a polygon. I replied that I didn't, but suggested we try to build a tool like that with ChatGPT.
