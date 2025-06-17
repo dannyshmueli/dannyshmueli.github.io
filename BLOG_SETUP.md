@@ -115,6 +115,37 @@ $ npm run deploy
 
 The deploy script will commit the freshly built site to the branch configured in `_config.yml` (commonly `gh-pages` or the `main` branch of `<username>.github.io`).  Make sure you have push rights and an access token if using CI.
 
+## GitHub Pages deploy workflow (hexo-deployer-git)
+
+The project is wired so that **only the generated static files** are pushed to a dedicated `gh-pages` branch, keeping `master` (source) clean.  Quick reference:
+
+1. One-time setup already done
+   * Added `hexo-deployer-git` to `package.json`.
+   * `_config.yml` contains:
+     ```yaml
+     deploy:
+       type: git
+       repo: git@github.com:dannyshmueli/dannyshmueli.github.io.git
+       branch: gh-pages
+     ```
+   * Initial `gh-pages` branch created with a `.nojekyll` file.
+   * GitHub → Settings → Pages is configured to serve **Branch: `gh-pages` / `(root)`**.
+
+2. Publish a new version (local machine)
+   ```bash
+   npm install          # only needed on new machines / fresh clones
+   hexo clean && hexo g # rebuild site into public/
+   hexo deploy          # commits & pushes public/ → gh-pages
+   ```
+   GitHub Pages will redeploy within ~60 seconds.
+
+3. Troubleshooting
+   • Verify `public/` contains fresh HTML (`hexo g`).  
+   • Ensure you are on `master` when running `hexo deploy`; the plugin handles the branch switch internally.  
+   • If deployment fails, check SSH auth (the deployer uses the `repo` URL verbatim).
+
+That's it—**a single `hexo deploy` publishes the blog** while keeping the repository history tidy.
+
 ---
 
 ## Upgrading Dependencies

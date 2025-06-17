@@ -201,10 +201,22 @@ sudo docker restart n8n
 To update to the latest version:
 
 ```bash
-sudo docker stop n8n
-sudo docker rm n8n
-# Then run the docker run command again with the latest image
+sudo docker stop n8n; sudo docker rm n8n
+# Pull the latest image and run with your configuration
+sudo docker pull n8nio/n8n
+sudo docker run -d --name n8n \
+  -p 5678:5678 \
+  -v /home/ubuntu/.n8n:/home/node/.n8n \
+  -e N8N_HOST="n8n.dannyshmueli.com" \
+  -e WEBHOOK_URL="https://n8n.dannyshmueli.com/" \
+  -e N8N_SOCKET_IO_URL="wss://n8n.dannyshmueli.com/rest/push" \
+  -e N8N_BASIC_AUTH_USER="your-email@example.com" \
+  -e N8N_BASIC_AUTH_PASSWORD="your-strong-password" \
+  --restart unless-stopped \
+  n8nio/n8n
 ```
+
+**Note:** Replace the environment variables with your actual configuration values. If you're using the Brave Search API integration, include the `BRAVE_API_KEY` environment variable as well.
 
 ## Security Considerations
 
