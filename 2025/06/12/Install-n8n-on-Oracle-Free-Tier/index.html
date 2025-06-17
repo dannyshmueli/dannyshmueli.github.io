@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://dannyshmueli.com/img/n8n-small.jpeg">
 <meta property="article:published_time" content="2025-06-12T15:40:58.000Z">
-<meta property="article:modified_time" content="2025-06-12T22:06:41.071Z">
+<meta property="article:modified_time" content="2025-06-17T19:07:41.822Z">
 <meta property="article:author" content="Danny Shmueli">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://dannyshmueli.com/img/n8n-small.jpeg">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          349 words
+          406 words
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          3 mins
+          4 mins
         
       </span>
     
@@ -360,8 +360,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> docker restart n8n<br></code></pre></td></tr></table></figure>
 
 <h3 id="Updating-n8n"><a href="#Updating-n8n" class="headerlink" title="Updating n8n"></a>Updating n8n</h3><p>To update to the latest version:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> docker stop n8n<br><span class="hljs-built_in">sudo</span> docker <span class="hljs-built_in">rm</span> n8n<br><span class="hljs-comment"># Then run the docker run command again with the latest image</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> docker stop n8n; <span class="hljs-built_in">sudo</span> docker <span class="hljs-built_in">rm</span> n8n<br><span class="hljs-comment"># Pull the latest image and run with your configuration</span><br><span class="hljs-built_in">sudo</span> docker pull n8nio/n8n<br><span class="hljs-built_in">sudo</span> docker run -d --name n8n \<br>  -p 5678:5678 \<br>  -v /home/ubuntu/.n8n:/home/node/.n8n \<br>  -e N8N_HOST=<span class="hljs-string">&quot;n8n.dannyshmueli.com&quot;</span> \<br>  -e WEBHOOK_URL=<span class="hljs-string">&quot;https://n8n.dannyshmueli.com/&quot;</span> \<br>  -e N8N_SOCKET_IO_URL=<span class="hljs-string">&quot;wss://n8n.dannyshmueli.com/rest/push&quot;</span> \<br>  -e N8N_BASIC_AUTH_USER=<span class="hljs-string">&quot;your-email@example.com&quot;</span> \<br>  -e N8N_BASIC_AUTH_PASSWORD=<span class="hljs-string">&quot;your-strong-password&quot;</span> \<br>  --restart unless-stopped \<br>  n8nio/n8n<br></code></pre></td></tr></table></figure>
 
+<p><strong>Note:</strong> Replace the environment variables with your actual configuration values. If you’re using the Brave Search API integration, include the <code>BRAVE_API_KEY</code> environment variable as well.</p>
 <h2 id="Security-Considerations"><a href="#Security-Considerations" class="headerlink" title="Security Considerations"></a>Security Considerations</h2><ol>
 <li>Always use strong passwords for n8n authentication</li>
 <li>Keep your system and Docker updated</li>
