@@ -41,6 +41,7 @@ While the dev-server is running Hexo watches the filesystem and rebuilds pages o
 
 | Task                | npm script        | Under the hood               |
 |---------------------|-------------------|------------------------------|
+| Add post            | `npm run add-post`| `hexo new post`                 |
 | Clean caches/output | `npm run clean`   | `hexo clean`                 |
 | Local dev preview   | `npm run server`  | `hexo server` (defaults to `localhost:4000`) |
 | Generate site       | `npm run build`   | `hexo generate` → `public/`  |

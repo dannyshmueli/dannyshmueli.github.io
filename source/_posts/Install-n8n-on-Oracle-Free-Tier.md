@@ -2,6 +2,7 @@
 title: Install n8n on Oracle Free Tier
 date: 2025-06-12 18:40:58
 tags:
+excerpt: Learn how to set up n8n (a powerful workflow automation tool) on Oracle Cloud's Always Free tier. Complete guide covering VM setup, Docker installation, NGINX reverse proxy, SSL certificates, and authentication - all for free with no monthly costs.
 categories: [cloud, oracle-cloud, self-hosting, n8n]
 index_img: /img/n8n-small.jpeg
 banner_img: /img/n8n.jpeg
