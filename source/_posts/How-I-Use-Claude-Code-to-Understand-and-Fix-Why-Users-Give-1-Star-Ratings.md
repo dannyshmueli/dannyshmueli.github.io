@@ -22,6 +22,8 @@ I'm Director of Product at [Anima](https://www.animaapp.com), where we help prod
 
 The scenario: You get a 1-star app rating with no text. Or a cancellation with "Other" selected. Or a user who was active for weeks and then vanished.
 
+These signals come from different places: an in-app feedback widget or subscription cancellation flows.
+
 What if you could reconstruct their entire journey and know exactly what broke?
 
 ## The Output
