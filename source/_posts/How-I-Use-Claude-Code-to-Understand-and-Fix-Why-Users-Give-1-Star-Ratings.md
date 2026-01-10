@@ -24,6 +24,8 @@ The scenario: You get a 1-star app rating with no text. Or a cancellation with "
 
 These signals come from different places: an in-app feedback widget or subscription cancellation flows.
 
+![In-app feedback widget](/img/claude-skill-user-journey/anima-feedback-ui.png)
+
 What if you could reconstruct their entire journey and know exactly what broke?
 
 ## The Output
