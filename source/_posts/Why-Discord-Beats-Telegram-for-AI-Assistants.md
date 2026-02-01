@@ -77,14 +77,49 @@ Discord lets you group channels into categories. I have:
 
 Collapsed categories mean I only see what's relevant. Open up Development when I'm coding. Collapse it when I'm not.
 
+## Advanced: Different Brains for Different Channels
+
+Here's where it gets powerful: Discord channels don't just organize your conversations — they can run entirely different AI personas.
+
+![Multi-agent routing in OpenClaw](/img/discord-ai/multi-agent-routing.png)
+
+My `#anima-product` channel has a product-focused agent that thinks like a PM. My `#devark-dev` channel has a technical builder persona that thinks in code. My `#general` channel has Cluka — my personal assistant who knows my calendar, preferences, and ongoing projects.
+
+**Same OpenClaw instance. Same Discord bot. Different brains per channel.**
+
+Each agent has:
+- **Its own personality file** — Different tone, expertise, and focus areas
+- **Its own memory** — Conversations in #anima-product don't leak into #devark-dev
+- **Its own model** — I run cheaper/faster models on specialized work channels, save the expensive model for my personal assistant
+
+The config is simple — you define agents with different workspaces, then bind Discord channels to specific agents:
+
+```json
+agents: {
+  list: [
+    { id: "main", name: "Cluka", workspace: "/agents/cluka" },
+    { id: "anima-pm", name: "Anima PM", workspace: "/agents/anima-pm" },
+    { id: "devark-dev", name: "DevArk Dev", workspace: "/agents/devark" }
+  ]
+},
+bindings: [
+  { agentId: "anima-pm", match: { channel: "discord", peer: { kind: "channel", id: "123..." }}},
+  { agentId: "devark-dev", match: { channel: "discord", peer: { kind: "channel", id: "456..." }}}
+]
+```
+
+This is how you scale from "one AI assistant" to "a team of specialized AI agents" — without running multiple servers or paying for multiple subscriptions.
+
 ## How to Set This Up
 
-If you're running [OpenClaw](https://github.com/openclaw/openclaw), setup takes two steps:
+If you're running [OpenClaw](https://github.com/openclaw/openclaw), basic setup takes two steps:
 
 1. **Create a free Discord server** — Just for you and your AI
 2. **Invite your OpenClaw bot and let it do the rest** — It'll set up channels, categories, and permissions based on your workflow
 
 That's it. Your AI assistant configures its own workspace.
+
+**Want multiple personas?** Add agent definitions to your config, create workspaces with different personality files, and bind channels to agents. The [OpenClaw docs](https://docs.openclaw.ai) walk you through it.
 
 ## The Insight
 
