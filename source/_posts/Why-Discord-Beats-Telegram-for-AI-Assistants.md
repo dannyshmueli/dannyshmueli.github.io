@@ -110,6 +110,36 @@ bindings: [
 
 This is how you scale from "one AI assistant" to "a team of specialized AI agents" — without running multiple servers or paying for multiple subscriptions.
 
+## Channel Personas: Making SOUL.md Visible
+
+Once you have different agents on different channels, there's a natural next question: how do people (or you, two weeks from now) know what each channel's agent *does*?
+
+Discord gives you two built-in tools for this.
+
+### Channel Topics as Name Tags
+
+Every Discord channel has a topic field — that short description visible at the top of the channel. Use it as a condensed version of the agent's personality.
+
+For example, my `#anima-product` channel topic reads:
+
+> 🎯 Anima PM Agent — Product thinking for animaapp.com. Tracks competitors, drafts specs, thinks in user stories. Sonnet-powered.
+
+One glance and you know what this channel is for, what persona lives here, and even what model it runs. No need to scroll through history to figure out the vibe.
+
+### Pinned Messages as the Full SOUL.md
+
+Channel topics have a character limit. For the full personality — the agent's complete SOUL.md — pin it as a message.
+
+I have my agents pin their own SOUL.md in their home channel. Click the pin icon, and you get the complete picture: personality, expertise, boundaries, communication style. It's like an employee profile card that's always one click away.
+
+The nice part? Your AI can manage this itself. When I update an agent's personality, it updates the pinned message automatically on its next heartbeat check. The channel description and pinned SOUL.md stay in sync without me touching Discord.
+
+### Why This Matters
+
+Without visible personas, multi-agent setups feel like talking to the same bot in different rooms. With them, each channel has *identity*. You remember which channel to go to because the agent there has a distinct presence — not just a different name, but a visible role and personality.
+
+It's a small thing. But small things compound. Six months of working with labeled, self-documenting agent channels versus six months of "wait, which bot does what again?" — the difference is real.
+
 ## How to Set This Up
 
 If you're running [OpenClaw](https://github.com/openclaw/openclaw), basic setup takes two steps:
