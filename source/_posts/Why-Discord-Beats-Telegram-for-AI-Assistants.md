@@ -59,14 +59,6 @@ I can:
 
 Compare that to Telegram where a research task dumps 15 messages into your main chat, pushing everything else up.
 
-## Reactions as Lightweight Acknowledgment
-
-Sometimes I don't need to respond. I just need to say "got it" or "nice" or "look at this later."
-
-Discord reactions do that perfectly. A quick 👍 or 👀 without cluttering the conversation. My AI assistant uses them too — acknowledging my messages without always needing a full response.
-
-In Telegram, every acknowledgment is another message. More noise.
-
 ## Categories Keep Things Organized
 
 Discord lets you group channels into categories. I have:
