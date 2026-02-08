@@ -1,0 +1,1 @@
+hexo.extend.injector.register('body_end', '<script src="https://app.agentanalytics.sh/tracker.js" data-project="dannyshmueli-com" data-token="aat_b6ebaf65f1005851f5366a66ebd0f7d9bb3cc63c52217654"></script>', 'default');
