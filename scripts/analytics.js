@@ -1,2 +1,2 @@
-hexo.extend.injector.register('body_end', '<script src="https://api.agentanalytics.sh/tracker.js" data-project="dannyshmueli-com" data-token="aat_d409d18a7e2fec35c5bcf8e5f12a8253ffdba09b6d871a13"></script>', 'default');
-hexo.extend.injector.register('body_end', '<script src="https://api.agentanalytics.sh/tracker.js" data-project="agentanalytics-landing" data-token="aat_fe197ecf2b0bb36b341cadb0eb9dec28bc59c8ab413bd1ab"></script>', 'default');
+// Agent Analytics — https://agentanalytics.sh
+hexo.extend.injector.register('body_end', '<script src="https://api.agentanalytics.sh/tracker.js" data-project="dannyshmueli-blog" data-token="aat_ec5adf1feefdacc1ea17159ec923db3ec5d0e9c4a03abaaa"></script>', 'default');
