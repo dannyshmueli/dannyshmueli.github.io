@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Danny Shmueli">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="My OpenClaw agent needed to generate charts on a $5 Fly.io machine. Puppeteer was too heavy, cloud APIs too expensive. So it built its own charting skill.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chart-image skill: How My OpenClaw Learned to Draw Charts - for Free">
+<meta property="og:url" content="https://dannyshmueli.com/2026/02/04/chart-image-ai-agent-visualization/index.html">
+<meta property="og:site_name" content="Danny Shmueli">
+<meta property="og:description" content="My OpenClaw agent needed to generate charts on a $5 Fly.io machine. Puppeteer was too heavy, cloud APIs too expensive. So it built its own charting skill.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dannyshmueli.com/img/chart-image-showcase/hero.png">
+<meta property="article:published_time" content="2026-02-04T12:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-10T07:01:27.780Z">
+<meta property="article:author" content="Danny Shmueli">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="OpenClaw">
+<meta property="article:tag" content="data visualization">
+<meta property="article:tag" content="skills">
+<meta property="article:tag" content="ClawHub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dannyshmueli.com/img/chart-image-showcase/hero.png">
+  
+  
+  
+  <title>chart-image skill: How My OpenClaw Learned to Draw Charts - for Free - Danny Shmueli</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dannyshmueli.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-EP4T16FE2D"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-EP4T16FE2D", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-EP4T16FE2D');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Danny Shmueli</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/chart-image-showcase/hero.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="chart-image skill: How My OpenClaw Learned to Draw Charts - for Free"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-04 12:00" pubdate>
+          February 4, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          178 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          2 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">chart-image skill: How My OpenClaw Learned to Draw Charts - for Free</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>I run an <a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">OpenClaw</a> agent on a small Fly.io machine. It monitors crypto prices, prediction markets, and developer metrics — and sends me updates on Discord and Telegram throughout the day.</p>
+<p>The problem? It had no way to <em>show</em> me data visually.</p>
+<!-- more -->
+
+<h2 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h2><p>My agent runs on a 256MB Fly.io instance. When I asked it to chart a token’s price history, the options were bleak:</p>
+<ul>
+<li><strong>Puppeteer&#x2F;Playwright</strong> — Headless Chrome needs 500MB+ RAM. My machine couldn’t even install it.</li>
+<li><strong>Cloud charting APIs</strong> — Per-image pricing adds up fast when your agent generates dozens of charts daily.</li>
+<li><strong>Canvas libraries</strong> — Native dependencies that fail to compile on minimal containers.</li>
+<li><strong>Just send numbers</strong> — A wall of text at 3am doesn’t tell you much.</li>
+</ul>
+<p>I needed something that could generate a chart PNG in under a second, with zero native dependencies, on the cheapest VM money can buy.</p>
+<h2 id="The-Solution"><a href="#The-Solution" class="headerlink" title="The Solution"></a>The Solution</h2><p><strong>chart-image</strong> is an <a target="_blank" rel="noopener" href="https://clawhub.com/">OpenClaw skill</a> that generates publication-quality chart images using <a target="_blank" rel="noopener" href="https://vega.github.io/vega-lite/">Vega-Lite</a> and <a target="_blank" rel="noopener" href="https://sharp.pixelplumbing.com/">Sharp</a>. No browser. No native compilation. Just Node.js.</p>
+<p>My agent passes in data, gets back a PNG. That’s it.</p>
+<p>It supports 9 chart types, dark mode, reference lines, multi-series data, sparklines, and more — everything an AI agent needs to turn raw data into visual insights.</p>
+<h2 id="The-Gallery"><a href="#The-Gallery" class="headerlink" title="The Gallery"></a>The Gallery</h2><p>Every chart below was generated by my OpenClaw agent. No screenshots, no external services — just the skill running on the same Fly.io machine that sends my morning briefs.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin:24px 0">
+<div style="flex:1;min-width:280px">
+<img src="/img/chart-image-showcase/01-line-dark-hline.png" srcset="/img/loading.gif" lazyload alt="Line chart with buy price reference line" style="width:100%;border-radius:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Line + Reference Line</strong><br>Track prices with threshold markers</p>
+</div>
+<div style="flex:1;min-width:280px">
+<img src="/img/chart-image-showcase/02-bar-light.png" srcset="/img/loading.gif" lazyload alt="Bar chart showing sessions per day" style="width:100%;border-radius:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Bar Chart</strong><br>Category comparisons with value labels</p>
+</div>
+<div style="flex:1;min-width:280px">
+<img src="/img/chart-image-showcase/03-area-focus.png" srcset="/img/loading.gif" lazyload alt="Area chart with focus on recent data" style="width:100%;border-radius:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Area + Focus Mode</strong><br>Zoom into recent movement for alerts</p>
+</div>
+</div>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin:24px 0">
+<div style="flex:1;min-width:280px">
+<img src="/img/chart-image-showcase/04-multi-series.png" srcset="/img/loading.gif" lazyload alt="Multi-series line chart comparing tools" style="width:100%;border-radius:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Multi-Series</strong><br>Compare datasets on one chart</p>
+</div>
+<div style="flex:1;min-width:280px">
+<img src="/img/chart-image-showcase/05-donut-dark.png" srcset="/img/loading.gif" lazyload alt="Donut chart showing framework usage" style="width:100%;border-radius:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Donut Chart</strong><br>Proportional breakdowns</p>
+</div>
+<div style="flex:1;min-width:280px">
+<img src="/img/chart-image-showcase/06-heatmap.png" srcset="/img/loading.gif" lazyload alt="Heatmap showing coding intensity" style="width:100%;border-radius:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Heatmap</strong><br>Two-dimensional patterns</p>
+</div>
+</div>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin:24px 0">
+<div style="flex:1;min-width:280px">
+<img src="/img/chart-image-showcase/07-stacked-bar.png" srcset="/img/loading.gif" lazyload alt="Stacked bar chart showing commit types" style="width:100%;border-radius:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Stacked Bar</strong><br>Composition within categories</p>
+</div>
+<div style="flex:1;min-width:280px">
+<img src="/img/chart-image-showcase/08-candlestick.png" srcset="/img/loading.gif" lazyload alt="Candlestick chart showing price action" style="width:100%;border-radius:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Candlestick</strong><br>Financial OHLC data</p>
+</div>
+<div style="flex:1;min-width:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+<img src="/img/chart-image-showcase/09-sparkline.png" srcset="/img/loading.gif" lazyload alt="Tiny sparkline chart" style="border-radius:4px;margin-bottom:8px">
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px"><strong>Sparkline</strong><br>Tiny inline trend indicators</p>
+</div>
+</div>
+
+<h2 id="How-My-Agent-Actually-Uses-This"><a href="#How-My-Agent-Actually-Uses-This" class="headerlink" title="How My Agent Actually Uses This"></a>How My Agent Actually Uses This</h2><p>The charts above aren’t hypothetical examples — these are the workflows running on my OpenClaw instance right now. The real power is how <strong>chart-image</strong> combines with other OpenClaw skills:</p>
+<p><strong>🪙 Crypto Price Alerts</strong><br>The agent uses the <strong>polymarket</strong> skill to fetch prediction market data, then pipes it straight into <strong>chart-image</strong> to generate a line chart with my buy price marked. If something’s moving, it uses the <strong>search-x</strong> skill to pull context from X&#x2F;Twitter. Three skills, one alert — delivered to Discord automatically.</p>
+<p><strong>📊 Prediction Market Monitor</strong><br>The <strong>polymarket</strong> skill polls every 30 minutes. When probability shifts more than 3%, <strong>chart-image</strong> generates an area chart with <code>--focus-recent</code> to highlight the move. The agent combines both outputs into a single visual update.</p>
+<p><strong>☀️ Morning Brief</strong><br>Each morning at 7:30am, the agent chains the <strong>weather</strong> skill, <strong>calendar</strong> skill, and <strong>chart-image</strong> together — I get a visual summary on Telegram that’s scannable in seconds instead of walls of text.</p>
+<p><strong>👨‍💻 Developer Metrics</strong><br>Git activity gets visualized as stacked bars (commit types) and heatmaps (coding hours). The agent posts these to our team Discord channel.</p>
+<p>This is what skill composition looks like in OpenClaw — each skill does one thing well, and the agent orchestrates them together. No human involved.</p>
+<h2 id="Why-OpenClaw-Skills"><a href="#Why-OpenClaw-Skills" class="headerlink" title="Why OpenClaw + Skills"></a>Why OpenClaw + Skills</h2><p>This is what the <a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">OpenClaw skill system</a> is built for. Skills are modular capabilities that agents can install and use autonomously:</p>
+<ul>
+<li><strong>Install by asking:</strong> Just tell your agent <em>“Hey, install chart-image from ClawHub”</em> — it handles the rest. No CLI commands, no manual setup</li>
+<li><strong>Zero config:</strong> No API keys, no cloud accounts. It runs locally on your machine</li>
+<li><strong>Composable:</strong> Chain it with other skills — fetch Polymarket data, generate a chart, search X for context, send to Discord. All in one agent turn</li>
+<li><strong>Lightweight:</strong> Works on Fly.io free tier, Raspberry Pi, any Node.js environment</li>
+</ul>
+<p>The skill is published on <a target="_blank" rel="noopener" href="https://clawhub.com/">ClawHub</a> — the skill registry for OpenClaw agents. Tell your agent to install what it needs, and it’s immediately more capable.</p>
+<h2 id="Technical-Specs"><a href="#Technical-Specs" class="headerlink" title="Technical Specs"></a>Technical Specs</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Runtime</strong></td>
+<td>Node.js — no native compilation, no Puppeteer</td>
+</tr>
+<tr>
+<td><strong>Rendering</strong></td>
+<td>Vega-Lite → SVG → Sharp → PNG</td>
+</tr>
+<tr>
+<td><strong>Speed</strong></td>
+<td>~200ms per chart</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>~50MB peak (vs 500MB+ for headless Chrome)</td>
+</tr>
+<tr>
+<td><strong>Chart types</strong></td>
+<td>Line, bar, area, pie&#x2F;donut, heatmap, candlestick, stacked, multi-series, sparkline</td>
+</tr>
+<tr>
+<td><strong>Features</strong></td>
+<td>Dark mode, reference lines, value labels, focus zoom, subtitles, annotations</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>PNG or SVG</td>
+</tr>
+</tbody></table>
+<h2 id="Get-It"><a href="#Get-It" class="headerlink" title="Get It"></a>Get It</h2><p>Just ask your OpenClaw agent:</p>
+<blockquote>
+<p><em>“Hey, install chart-image from ClawHub”</em></p>
+</blockquote>
+<p>That’s it. Your agent finds it on <a target="_blank" rel="noopener" href="https://clawhub.com/">ClawHub</a>, installs it, and starts using it. No manual downloads, no configuration files. Published under <a target="_blank" rel="noopener" href="https://clawhub.com/u/dannyshmueli">@dannyshmueli</a> — open source and free.</p>
+<hr>
+<p><em>This skill was built by my agent, improved nightly by that same agent, and used by it every single day. The charts in this post were generated by the skill itself, for this post. Dogfooding all the way down.</em> 🐱🦞</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/AI/" class="category-chain-item">AI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/AI/Tools/" class="category-chain-item">Tools</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/AI/Tools/OpenClaw/" class="category-chain-item">OpenClaw</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/AI/" class="print-no-link">#AI</a>
+      
+        <a href="/tags/OpenClaw/" class="print-no-link">#OpenClaw</a>
+      
+        <a href="/tags/data-visualization/" class="print-no-link">#data visualization</a>
+      
+        <a href="/tags/skills/" class="print-no-link">#skills</a>
+      
+        <a href="/tags/ClawHub/" class="print-no-link">#ClawHub</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>chart-image skill: How My OpenClaw Learned to Draw Charts - for Free</div>
+      <div>https://dannyshmueli.com/2026/02/04/chart-image-ai-agent-visualization/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Danny Shmueli</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>February 4, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/02/01/Why-Discord-Beats-Telegram-for-AI-Assistants/" title="Why Discord Beats Telegram for AI Assistants">
+                        <span class="hidden-mobile">Why Discord Beats Telegram for AI Assistants</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="https://api.agentanalytics.sh/tracker.js" data-project="dannyshmueli-blog" data-token="aat_ec5adf1feefdacc1ea17159ec923db3ec5d0e9c4a03abaaa"></script><!-- hexo injector body_end end --></body>
+</html>

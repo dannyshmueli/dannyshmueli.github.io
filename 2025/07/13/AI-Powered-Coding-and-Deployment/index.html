@@ -1,0 +1,861 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Danny Shmueli">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="GitHub Issues as Your New IDE. Last week I fixed a bug waiting for my coffee. Not by SSH-ing into a server or opening my laptop. Just by typing @claude fix this on a GitHub issue from my phone.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Powered Coding and Deployment">
+<meta property="og:url" content="https://dannyshmueli.com/2025/07/13/AI-Powered-Coding-and-Deployment/index.html">
+<meta property="og:site_name" content="Danny Shmueli">
+<meta property="og:description" content="GitHub Issues as Your New IDE. Last week I fixed a bug waiting for my coffee. Not by SSH-ing into a server or opening my laptop. Just by typing @claude fix this on a GitHub issue from my phone.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dannyshmueli.com/img/ai-powered-coding-deployment/ai-coding-github-actions.jpeg">
+<meta property="article:published_time" content="2025-07-13T15:39:35.000Z">
+<meta property="article:modified_time" content="2026-02-10T07:01:27.780Z">
+<meta property="article:author" content="Danny Shmueli">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dannyshmueli.com/img/ai-powered-coding-deployment/ai-coding-github-actions.jpeg">
+  
+  
+  
+  <title>AI Powered Coding and Deployment - Danny Shmueli</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dannyshmueli.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-EP4T16FE2D"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-EP4T16FE2D", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-EP4T16FE2D');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Danny Shmueli</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/ai-powered-coding-deployment/ai-coding-github-actions-wide.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="AI Powered Coding and Deployment"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-13 15:39" pubdate>
+          July 13, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          530 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">AI Powered Coding and Deployment</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Building-the-Ultimate-AI-Powered-Development-Workflow-From-Issue-to-Production-in-Minutes"><a href="#Building-the-Ultimate-AI-Powered-Development-Workflow-From-Issue-to-Production-in-Minutes" class="headerlink" title="Building the Ultimate AI-Powered Development Workflow: From Issue to Production in Minutes"></a>Building the Ultimate AI-Powered Development Workflow: From Issue to Production in Minutes</h1><p><em>How I built a fully automated development &amp; deployment pipeline where Claude AI can fix bugs and Github actions create preview environments. All from a GitHub issue that I can create and manage from my phone.</em></p>
+<h2 id="The-Problem-When-Product-Manager-Meets-Developer"><a href="#The-Problem-When-Product-Manager-Meets-Developer" class="headerlink" title="The Problem: When Product Manager Meets Developer"></a>The Problem: When Product Manager Meets Developer</h2><p>As a product manager who writes code, I live in two worlds. In one, I’m all over user feedback and prioritizing features. In the other, I’m knee-deep in code. The constant context switching is exhausting and as I want more partners to work on the project I need better tools.</p>
+<p>While working on <a target="_blank" rel="noopener" href="https://canvasgenie.app/">Canvas Genie</a> (my AI-powered whiteboard tool), I found myself spending hours on repetitive tasks:</p>
+<ul>
+<li>Manually creating branches for bug fixes</li>
+<li>Setting up test environments (locally testing the change)</li>
+<li>Coordinating deployments</li>
+</ul>
+<p>That’s when it hit me: <strong>What if AI could handle the entire flow from bug report to deployed fix?</strong></p>
+<h2 id="The-Vision-AI-as-a-True-Team-Member"><a href="#The-Vision-AI-as-a-True-Team-Member" class="headerlink" title="The Vision: AI as a True Team Member"></a>The Vision: AI as a True Team Member</h2><p>Imagine this scenario:<br><img src="/img/ai-powered-coding-deployment/scenario.png" srcset="/img/loading.gif" lazyload alt="Software Development Lifecylce"></p>
+<ol>
+<li>Report a bug in a GitHub issue<br> <img src="/img/ai-powered-coding-deployment/report-a-bug-in-github-issues.png" srcset="/img/loading.gif" lazyload><br> <strong>figure:</strong> bug in light mode</li>
+<li>Tag <code>@claude</code> in the issue (<em>“@claude please help with this”</em>)</li>
+<li>Claude investigates, writes the fix on a branch and links to create PR<br> <img src="/img/ai-powered-coding-deployment/claude-listen-fix.png" srcset="/img/loading.gif" lazyload><br> <strong>figure:</strong> Claude listens and responds with progress updates.</li>
+<li>PR deploys it to a preview isolated environment (server + client)<br> <img src="/img/ai-powered-coding-deployment/pr-deploy.png" srcset="/img/loading.gif" lazyload><br> <strong>figure:</strong> no AI for this step, just Github actions.</li>
+<li>Verify the fix and merge the PR</li>
+<li>Merge to main branch deploys to production automatically using Github actions.</li>
+</ol>
+<h2 id="Cost-Overview-What-You’ll-Need"><a href="#Cost-Overview-What-You’ll-Need" class="headerlink" title="Cost Overview: What You’ll Need"></a>Cost Overview: What You’ll Need</h2><p>Before diving into the technical details, here’s the monthly cost breakdown:</p>
+<p><strong>Required Services:</strong></p>
+<ul>
+<li><strong>Cloudflare Workers</strong>: Free tier (100,000 requests&#x2F;day)</li>
+<li><strong>Cloudflare Pages</strong>: Free tier (500 builds&#x2F;month)</li>
+<li><strong>GitHub Actions</strong>: Free tier (2,000 minutes&#x2F;month)</li>
+<li><strong>Claude Pro&#x2F;Max</strong>: $20-200&#x2F;month</li>
+</ul>
+<p><strong>Total Monthly Cost</strong>: $20-200 (just for Claude subscription)</p>
+<p>The free tiers are generous enough for most small to medium projects. You’ll only pay for Cloudflare if you exceed the limits.</p>
+<h2 id="The-Product-Manager’s-Perspective"><a href="#The-Product-Manager’s-Perspective" class="headerlink" title="The Product Manager’s Perspective"></a>The Product Manager’s Perspective</h2><h3 id="Why-This-Investment-Made-Sense"><a href="#Why-This-Investment-Made-Sense" class="headerlink" title="Why This Investment Made Sense"></a>Why This Investment Made Sense</h3><p>What’s the ROI? At 2-3 days of setup time, this investment pays for itself quickly:</p>
+<ol>
+<li><strong>Velocity</strong>: Ship fixes in minutes, not hours</li>
+<li><strong>Quality</strong>: Every change is tested in isolation</li>
+<li><strong>Confidence</strong>: Preview before production in a production-like environment</li>
+<li><strong>Scale</strong>: Handle multiple PRs simultaneously without resource conflicts</li>
+<li><strong>Cost</strong>: Cloudflare Workers are practically free at my scale</li>
+</ol>
+<h3 id="The-Real-Impact"><a href="#The-Real-Impact" class="headerlink" title="The Real Impact"></a>The Real Impact</h3><p>Since implementing this system:</p>
+<ul>
+<li><strong>Bug fix time</strong>: From 2-3 hours to 15 minutes</li>
+<li><strong>Deployment errors</strong>: Reduced by 90%</li>
+<li><strong>Context switching</strong>: Eliminated for simple fixes</li>
+<li><strong>Developer happiness</strong>: Through the roof</li>
+</ul>
+<h3 id="When-Automation-Pays-Off"><a href="#When-Automation-Pays-Off" class="headerlink" title="When Automation Pays Off"></a>When Automation Pays Off</h3><p>The break-even point was surprisingly quick:</p>
+<ul>
+<li>Setup time: ~12 hours</li>
+<li>Time saved per deployment: ~1 hour</li>
+<li>Deployments needed to break even: 12</li>
+<li>Actual deployment frequency: 12 per week</li>
+</ul>
+<p>We hit ROI in about 1 week.</p>
+<h2 id="The-Complete-Flow-From-Issue-to-Production"><a href="#The-Complete-Flow-From-Issue-to-Production" class="headerlink" title="The Complete Flow: From Issue to Production"></a>The Complete Flow: From Issue to Production</h2><h3 id="Prerequisites-Technical-Knowledge-Required"><a href="#Prerequisites-Technical-Knowledge-Required" class="headerlink" title="Prerequisites: Technical Knowledge Required"></a>Prerequisites: Technical Knowledge Required</h3><p>Before starting, you should be comfortable with:</p>
+<ul>
+<li>GitHub Actions and YAML syntax</li>
+<li>Basic command line operations</li>
+<li>Environment variables and API keys</li>
+<li>Git branching and pull requests</li>
+</ul>
+<h3 id="Prerequisites-The-Foundation"><a href="#Prerequisites-The-Foundation" class="headerlink" title="Prerequisites: The Foundation"></a>Prerequisites: The Foundation</h3><p><strong>Why These Tools?</strong></p>
+<ul>
+<li><strong>Cloudflare Workers</strong>: Serverless backend that scales globally without server management</li>
+<li><strong>Cloudflare Pages</strong>: Static hosting with automatic preview deployments for every PR</li>
+<li><strong>GitHub Actions</strong>: Automation workflows that respond to GitHub events</li>
+<li><strong>Claude Code Action</strong>: AI agent that can read, write, and push code directly to GitHub</li>
+</ul>
+<p><strong>Tech Stack:</strong></p>
+<ul>
+<li><strong>Backend</strong>: Cloudflare Workers</li>
+<li><strong>Frontend</strong>: Cloudflare Pages (static hosting with preview deployments)</li>
+<li><strong>CI&#x2F;CD</strong>: GitHub Actions (automation workflows)</li>
+<li><strong>Package Manager</strong>: pnpm (monorepo support)</li>
+</ul>
+<p><strong>Required Accounts:</strong></p>
+<ul>
+<li>GitHub account with Actions enabled</li>
+<li>Cloudflare account (free tier works)</li>
+<li>Claude Code OAuth token (Pro&#x2F;Max Subscription) or Anthropic API key</li>
+</ul>
+<h4 id="Setting-Up-Cloudflare-API-Permissions"><a href="#Setting-Up-Cloudflare-API-Permissions" class="headerlink" title="Setting Up Cloudflare API Permissions"></a>Setting Up Cloudflare API Permissions</h4><p>You’ll need a Cloudflare API token with specific permissions to deploy workers and pages automatically.</p>
+<p><img src="/img/ai-powered-coding-deployment/clouldflare-api-token-setttings.png" srcset="/img/loading.gif" lazyload alt="Cloudflare API Token Settings"></p>
+<p><strong>Required Permissions:</strong></p>
+<ul>
+<li><strong>Cloudflare Pages</strong>: Edit permissions (to deploy frontend previews)</li>
+<li><strong>Workers Scripts</strong>: Edit permissions (to deploy backend services)</li>
+<li><strong>User Details</strong>: Read permissions (for authentication)</li>
+</ul>
+<h3 id="Setup-Claude-Code-in-your-Github-Actions"><a href="#Setup-Claude-Code-in-your-Github-Actions" class="headerlink" title="Setup Claude Code in your Github Actions:"></a>Setup Claude Code in your Github Actions:</h3><p>Follow the instructions from <a target="_blank" rel="noopener" href="https://github.com/anthropics/claude-code-action">https://github.com/anthropics/claude-code-action</a> </p>
+<h4 id="GitHub-Actions-Permissions"><a href="#GitHub-Actions-Permissions" class="headerlink" title="GitHub Actions Permissions"></a>GitHub Actions Permissions</h4><p>In your repository settings → Actions → General:</p>
+<ul>
+<li><strong>Actions permissions</strong>: Allow all actions</li>
+<li><strong>Workflow permissions</strong>: Read and write permissions</li>
+<li><strong>Allow GitHub Actions to create and approve pull requests</strong>: ✓ Enabled</li>
+</ul>
+<p>Required repository secrets:</p>
+<ul>
+<li><code>CLAUDE_CODE_OAUTH_TOKEN</code>: Your Claude Code OAuth token</li>
+<li><code>CLOUDFLARE_API_TOKEN</code>: API token with Workers and Pages permissions</li>
+<li><code>YOUR_APP_API_KEY_PRODUCTION</code>: Your production API keys</li>
+<li><code>YOUR_APP_API_KEY_TEST</code>: Test API keys for preview environments</li>
+</ul>
+<h2 id="Step-by-Step-Workflow"><a href="#Step-by-Step-Workflow" class="headerlink" title="Step-by-Step Workflow"></a>Step-by-Step Workflow</h2><h3 id="Step-1-User-Reports-an-Issue"><a href="#Step-1-User-Reports-an-Issue" class="headerlink" title="Step 1: User Reports an Issue"></a>Step 1: User Reports an Issue</h3><p>A user creates a GitHub issue: “Live Suggestions Button in Light Mode looks bad” + adds screenshots<br>They simply add: <em>“@claude can you fix this?”</em></p>
+<h3 id="Step-2-Claude-Springs-into-Action"><a href="#Step-2-Claude-Springs-into-Action" class="headerlink" title="Step 2: Claude Springs into Action"></a>Step 2: Claude Springs into Action</h3><p>The GitHub Actions workflow detects the @claude mention and triggers the AI agent. This is where the magic begins - Claude analyzes the issue, examines the codebase, and creates a solution.</p>
+<p><code>.github/workflows/claude.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Claude</span> <span class="hljs-string">PR</span> <span class="hljs-string">Assistant</span><br><span class="hljs-attr">on:</span><br>  <span class="hljs-attr">issues:</span><br>    <span class="hljs-attr">types:</span> [<span class="hljs-string">opened</span>, <span class="hljs-string">assigned</span>]<br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">claude-code-action:</span><br>    <span class="hljs-attr">if:</span> <span class="hljs-string">contains(github.event.issue.body,</span> <span class="hljs-string">&#x27;@claude&#x27;</span><span class="hljs-string">)</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">anthropics/claude-code-action@beta</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">model:</span> <span class="hljs-string">&quot;claude-opus-4&quot;</span><br></code></pre></td></tr></table></figure>
+<p><strong>⚠️ Critical Configuration</strong>: The <code>custom_instructions</code> field is essential! Without explicitly telling Claude to push to a branch, it might only commit changes within the GitHub Actions environment where they’re never accessible.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">branch_prefix:</span> <span class="hljs-string">&quot;claude-agent-&quot;</span><br><span class="hljs-attr">custom_instructions:</span> <span class="hljs-string">|</span><br><span class="hljs-string">  Use branch prefix: claude-agent-</span><br><span class="hljs-string">  Push your changes to the branch and verify the branch is found before done</span><br><span class="hljs-string">  I need you to check if the branch is live - no need for PR, just make sure the branch you made and committed all the changes to is there</span><br></code></pre></td></tr></table></figure>
+
+<p>Learn more about setting up Claude Code in GitHub Actions: <a target="_blank" rel="noopener" href="https://docs.anthropic.com/en/docs/claude-code/github-actions">Official Documentation</a> </p>
+<h3 id="Step-3-Claude-Fixes-and-Creates-Branch"><a href="#Step-3-Claude-Fixes-and-Creates-Branch" class="headerlink" title="Step 3: Claude Fixes and Creates Branch"></a>Step 3: Claude Fixes and Creates Branch</h3><p>Claude analyzes the codebase, identifies the problem, and creates a fix. Then it pushes the fix to a new branch (e.g., <code>claude-agent-issue-26</code>) and comments on the issue with:</p>
+<ul>
+<li>branch link</li>
+<li>create PR link</li>
+</ul>
+<p>This gives you full control - you can review the changes before creating the PR.</p>
+<p><strong>Example Workflow:</strong></p>
+<ol>
+<li>Claude fixes issue #26, creates branch <code>claude-agent-issue-26</code></li>
+<li>You create PR from that branch</li>
+<li>You test and find issues</li>
+<li>Comment on PR: “@claude the button needs to be centered on mobile”</li>
+<li>Claude pushes new commits to the same branch</li>
+<li>PR automatically rebuilds</li>
+</ol>
+<p><strong>Why on PR:</strong> When Claude is triggered on a PR (not an issue), it always works on the existing PR branch. This means:</p>
+<ul>
+<li>First time: @claude on issue → creates new branch</li>
+<li>Subsequent times: @claude on PR → updates same branch</li>
+</ul>
+<h3 id="Step-4-Isolated-Preview-Environment"><a href="#Step-4-Isolated-Preview-Environment" class="headerlink" title="Step 4: Isolated Preview Environment"></a>Step 4: Isolated Preview Environment</h3><p>Here’s where the real power comes in. When you create a PR from Claude’s branch, the automated deployment system creates a completely isolated environment for testing.</p>
+<p>Each PR gets its own complete environment through the <code>pr-deploy.yml</code> workflow:</p>
+<ol>
+<li><strong>Deploys a branch-specific backend</strong>: <code>https://your-app-name-claude-agent-issue-26.cloudflareuser.workers.dev</code></li>
+<li><strong>Builds the frontend with the branch API</strong>: The client knows to talk to the branch backend</li>
+<li><strong>Deploys to Cloudflare Pages</strong>: <code>https://claude-agent-issue-26.your-app-name.pages.dev</code></li>
+<li><strong>Comments on the PR</strong> with all the preview URLs</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">branch-specific</span> <span class="hljs-string">Cloudflare</span> <span class="hljs-string">Worker</span><br>  <span class="hljs-attr">env:</span><br>    <span class="hljs-attr">CLOUDFLARE_API_TOKEN:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.CLOUDFLARE_API_TOKEN</span> <span class="hljs-string">&#125;&#125;</span><br>    <span class="hljs-comment"># Use test API keys for preview environments</span><br>    <span class="hljs-attr">YOUR_APP_API_KEY:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.YOUR_APP_API_KEY_TEST</span> <span class="hljs-string">&#125;&#125;</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    ./deploy-cloudflare-branch.sh &quot;$&#123;&#123; steps.branch.outputs.name &#125;&#125;&quot;</span><br><span class="hljs-string"></span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Build</span> <span class="hljs-string">client</span> <span class="hljs-string">with</span> <span class="hljs-string">branch</span> <span class="hljs-string">API</span><br>  <span class="hljs-attr">env:</span><br>    <span class="hljs-comment"># Point frontend to the branch-specific backend</span><br>    <span class="hljs-attr">VITE_API_BASE_URL:</span> <span class="hljs-string">https://api-your-app-$&#123;&#123;</span> <span class="hljs-string">steps.branch.outputs.sanitized</span> <span class="hljs-string">&#125;&#125;.your-domain.workers.dev</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br>    <span class="hljs-string">pnpm</span> <span class="hljs-string">build:cloudflare</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>Use separate API keys for test (<code>YOUR_APP_API_KEY_TEST</code>) vs production (<code>YOUR_APP_API_KEY_PRODUCTION</code>)</li>
+<li>The frontend build gets the branch-specific API URL via environment variable</li>
+<li>This pattern works for any API service (OpenAI, Stripe, OpenRouter, etc.)</li>
+</ul>
+<p><strong>Result:</strong> </p>
+<ul>
+<li>Isolated backend with test API keys</li>
+<li>Frontend configured to use the branch backend</li>
+<li>No interference with production or other PRs</li>
+<li>Full end-to-end testing capability</li>
+</ul>
+<h3 id="Step-5-Review-and-Test"><a href="#Step-5-Review-and-Test" class="headerlink" title="Step 5: Review and Test"></a>Step 5: Review and Test</h3><p>With the preview environment ready, you can now test the fix in a production-like environment. The PR comment includes direct links to both the frontend and backend, making it easy to verify the changes work as expected.</p>
+<h3 id="Step-6-Automatic-Cleanup"><a href="#Step-6-Automatic-Cleanup" class="headerlink" title="Step 6: Automatic Cleanup"></a>Step 6: Automatic Cleanup</h3><p>When the PR is merged or closed, <code>pr-cleanup.yml</code> automatically:</p>
+<ul>
+<li>Deletes the branch-specific worker</li>
+<li>Updates deployment status</li>
+<li>Posts a cleanup confirmation</li>
+</ul>
+<p>No more forgotten test environments eating up resources!</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># pr-cleanup.yml</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Delete</span> <span class="hljs-string">Cloudflare</span> <span class="hljs-string">Worker</span><br>  <span class="hljs-attr">env:</span><br>    <span class="hljs-attr">CLOUDFLARE_API_TOKEN:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.CLOUDFLARE_API_TOKEN</span> <span class="hljs-string">&#125;&#125;</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    echo &quot;🧹 Cleaning up Cloudflare Worker: $&#123;&#123; steps.branch.outputs.worker_name &#125;&#125;&quot;</span><br><span class="hljs-string">    npx wrangler delete --name &quot;$&#123;&#123; steps.branch.outputs.worker_name &#125;&#125;&quot; --force</span><br><span class="hljs-string">    echo &quot;✅ Worker cleanup complete&quot;</span><br><span class="hljs-string"></span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Add</span> <span class="hljs-string">cleanup</span> <span class="hljs-string">comment</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/github-script@v7</span><br>  <span class="hljs-attr">with:</span><br>    <span class="hljs-attr">script:</span> <span class="hljs-string">|</span><br><span class="hljs-string">      const commentBody = [</span><br><span class="hljs-string">        &#x27;### 🧹 Preview Environment Cleaned Up&#x27;,</span><br><span class="hljs-string">        &#x27;&#x27;,</span><br><span class="hljs-string">        `The preview environment for branch \`$&#123;branch&#125;\` has been removed.`,</span><br><span class="hljs-string">        `- **Worker:** \`$&#123;workerName&#125;\` (deleted)`,</span><br><span class="hljs-string">        `- **Status:** $&#123;isMerged ? &#x27;Merged&#x27; : &#x27;Closed without merging&#x27;&#125;`,</span><br><span class="hljs-string">        &#x27;&#x27;,</span><br><span class="hljs-string">        &#x27;Thank you for your contribution! 🎉&#x27;</span><br><span class="hljs-string">      ].join(&#x27;\n&#x27;);</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/ai-powered-coding-deployment/cleanup-done.png" srcset="/img/loading.gif" lazyload alt="Cleanup Confirmation Comment"></p>
+<h3 id="Step-7-Production-Deployment"><a href="#Step-7-Production-Deployment" class="headerlink" title="Step 7: Production Deployment"></a>Step 7: Production Deployment</h3><p>Merging to the <code>main</code> branch triggers the production deployment:</p>
+<ul>
+<li>Backend deploys to <code>myproject.myusername.workers.dev</code></li>
+<li>Frontend deploys to <code>www.myapp.com</code></li>
+<li>All with zero manual intervention</li>
+</ul>
+<h2 id="Implementation-Details"><a href="#Implementation-Details" class="headerlink" title="Implementation Details"></a>Implementation Details</h2><h3 id="Branch-Name-Sanitization"><a href="#Branch-Name-Sanitization" class="headerlink" title="Branch Name Sanitization"></a>Branch Name Sanitization</h3><p>Cloudflare has strict naming requirements, so I sanitize branch names:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">SANITIZED_BRANCH=$(<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$BRANCH_NAME</span>&quot;</span> | \<br>  sed <span class="hljs-string">&#x27;s/[^a-zA-Z0-9-]/-/g&#x27;</span> | \<br>  sed <span class="hljs-string">&#x27;s/--*/-/g&#x27;</span> | \<br>  sed <span class="hljs-string">&#x27;s/^-//;s/-$//&#x27;</span> | \<br>  <span class="hljs-built_in">tr</span> <span class="hljs-string">&#x27;[:upper:]&#x27;</span> <span class="hljs-string">&#x27;[:lower:]&#x27;</span> | \<br>  <span class="hljs-built_in">cut</span> -c1-50)<br></code></pre></td></tr></table></figure>
+
+<p>This turns <code>feature/ADD-NEW-API!!!</code> into <code>feature-add-new-api</code>.</p>
+<h3 id="Environment-Isolation"><a href="#Environment-Isolation" class="headerlink" title="Environment Isolation"></a>Environment Isolation</h3><p>Each environment uses different API keys:</p>
+<ul>
+<li><strong>Production</strong>: <code>OPENROUTER_API_KEY_PRODUCTION</code></li>
+<li><strong>PR Previews</strong>: <code>OPENROUTER_API_KEY_TEST</code></li>
+<li><strong>Local Dev</strong>: <code>OPENROUTER_API_KEY</code></li>
+</ul>
+<p>This prevents test environments from affecting production quotas or data.</p>
+<h3 id="Challenges-and-Solutions"><a href="#Challenges-and-Solutions" class="headerlink" title="Challenges and Solutions"></a>Challenges and Solutions</h3><ol>
+<li><strong>CORS configuration</strong>: Branch preview URLs need special handling</li>
+<li><strong>Secret management</strong>: Different keys for different environments</li>
+<li><strong>Cleanup automation</strong>: Ensuring resources are properly removed</li>
+<li><strong>Iteration workflow</strong>: Remember to use PR comments (not issue comments) for continued work on the same branch</li>
+</ol>
+<hr>
+<p><em>Check out <a target="_blank" rel="noopener" href="https://app.canvasgenie.app/">Canvas Genie</a>. Have questions? Find me on <a target="_blank" rel="noopener" href="https://x.com/dannyshmueli">X</a></em></p>
+<h2 id="Technical-Resources"><a href="#Technical-Resources" class="headerlink" title="Technical Resources"></a>Technical Resources</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/">Cloudflare Workers Documentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/anthropics/claude-code-action">Claude Code Action</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/cloud/" class="category-chain-item">cloud</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/cloud/DevOps/" class="category-chain-item">DevOps</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/cloud/DevOps/Cloudflare/" class="category-chain-item">Cloudflare</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/cloud/DevOps/Cloudflare/GitHub-Actions/" class="category-chain-item">GitHub Actions</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/cloud/DevOps/Cloudflare/GitHub-Actions/Product-Management/" class="category-chain-item">Product Management</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>AI Powered Coding and Deployment</div>
+      <div>https://dannyshmueli.com/2025/07/13/AI-Powered-Coding-and-Deployment/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Danny Shmueli</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>July 13, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/01/10/How-I-Use-Claude-Code-to-Understand-and-Fix-Why-Users-Give-1-Star-Ratings/" title="Using Claude Code to Understand 1-Star Ratings">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Using Claude Code to Understand 1-Star Ratings</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/06/21/Product-Model-Fit-with-OpenRouter-Model-Picker/" title="Product Model Fit with OpenRouter Model Picker">
+                        <span class="hidden-mobile">Product Model Fit with OpenRouter Model Picker</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="https://api.agentanalytics.sh/tracker.js" data-project="dannyshmueli-blog" data-token="aat_ec5adf1feefdacc1ea17159ec923db3ec5d0e9c4a03abaaa"></script><!-- hexo injector body_end end --></body>
+</html>
