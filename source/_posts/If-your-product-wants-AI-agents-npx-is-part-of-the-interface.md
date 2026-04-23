@@ -7,7 +7,7 @@ tags:
   - product-management
   - developer-tools
   - distribution
-excerpt: Shipping a skill, CLI, MCP server, or API is not the same as building a good product for Claude Code, Codex, Cursor, Hermes, and other agents. The real work is activation, recovery, and free-to-paid conversion while the agent holds the task context.
+excerpt: When your users are accessing your product from Claude Code, Codex, Cursor, Hermes, OpenCode, Paperclip, and similar, a skill, CLI, MCP server, or API is not enough. You need also login, onboarding, conversion, and recovery at the right approval moments.
 index_img: /img/ai-agent-interface/ai-agent-interface-hero.png
 banner_img: /img/ai-agent-interface/ai-agent-interface-hero.png
 categories:
