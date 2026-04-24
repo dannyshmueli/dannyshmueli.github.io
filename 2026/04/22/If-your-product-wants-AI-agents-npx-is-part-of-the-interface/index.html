@@ -19,16 +19,16 @@
   <meta name="author" content="Danny Shmueli">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Shipping a skill, CLI, MCP server, or API is not the same as building a good product for Claude Code, Codex, Cursor, Hermes, and other agents. The real work is activation, recovery, and free-to-paid c">
+    <meta name="description" content="When your users are accessing your product from Claude Code, Codex, Cursor, Hermes, OpenCode, Paperclip, and similar runtimes, a skill, CLI, MCP server, or API is not enough. You also need login, onbo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="If you are building products for AI agents then skill, cli, mcp, api are not enough">
+<meta property="og:title" content="If you are building products for AI agents, then a skill, CLI, MCP, or API is not enough">
 <meta property="og:url" content="https://dannyshmueli.com/2026/04/22/If-your-product-wants-AI-agents-npx-is-part-of-the-interface/index.html">
 <meta property="og:site_name" content="Danny Shmueli">
-<meta property="og:description" content="Shipping a skill, CLI, MCP server, or API is not the same as building a good product for Claude Code, Codex, Cursor, Hermes, and other agents. The real work is activation, recovery, and free-to-paid c">
+<meta property="og:description" content="When your users are accessing your product from Claude Code, Codex, Cursor, Hermes, OpenCode, Paperclip, and similar runtimes, a skill, CLI, MCP server, or API is not enough. You also need login, onbo">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://dannyshmueli.com/img/ai-agent-interface/ai-agent-interface-hero.png">
 <meta property="article:published_time" content="2026-04-22T20:09:34.000Z">
-<meta property="article:modified_time" content="2026-04-23T17:10:40.795Z">
+<meta property="article:modified_time" content="2026-04-24T13:19:13.521Z">
 <meta property="article:author" content="Danny Shmueli">
 <meta property="article:tag" content="ai-agents">
 <meta property="article:tag" content="npm">
@@ -40,7 +40,7 @@
   
   
   
-  <title>If you are building products for AI agents then skill, cli, mcp, api are not enough - Danny Shmueli</title>
+  <title>If you are building products for AI agents, then a skill, CLI, MCP, or API is not enough - Danny Shmueli</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -207,7 +207,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="If you are building products for AI agents then skill, cli, mcp, api are not enough"></span>
+            <span id="subtitle" data-typed-text="If you are building products for AI agents, then a skill, CLI, MCP, or API is not enough"></span>
           
         </div>
 
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          108 words
+          98 words
         
       </span>
     
@@ -278,17 +278,16 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">If you are building products for AI agents then skill, cli, mcp, api are not enough</h1>
+            <h1 id="seo-header">If you are building products for AI agents, then a skill, CLI, MCP, or API is not enough</h1>
             
             
               <div class="markdown-body">
                 
-                <p>If you have a product that is already being used by AI agents, or increasingly being consumed through Claude Code, Codex, Cursor, Hermes, OpenCode, Paperclip, and similar runtimes, then this post is for you.</p>
-<p>After building Agent Analytics, I feel like I understand this category much better than I did a year ago. You start seeing the same product mistakes over and over</p>
+                <p>If you have a product that is already being used by AI agents through Claude Code, Codex, Cursor, Hermes, OpenCode, Paperclip, and similar runtimes, then this post is for you.</p>
+<p>After building <a target="_blank" rel="noopener" href="https://agentanalytics.sh/">Agent Analytics</a>, I feel like I understand this category much better than I did a year ago. You start seeing the same product mistakes over and over.</p>
 <!-- more -->
 
-<p>A product for agents beside provide inertial value (like providing context) has to work at the moments that actually matter.</p>
-<p>The goal is simple: the agent should be able to get the human up and running end to end, with as little human intervention as possible, and only at the right approval moments.</p>
+<p>The goal: the human’s AI agent should be able to get your product or service up and running end to end, with as little human intervention as possible, and only at the right approval moments.</p>
 <p>TLDR:</p>
 <table>
 <thead>
@@ -306,31 +305,31 @@
 <td>Most products still rely on pasted API keys, localhost-only assumptions, manual setup steps, or browser-only flows</td>
 </tr>
 <tr>
-<td>2 Onboarding &#x2F; Activiation</td>
+<td>2 Onboarding &#x2F; Activation</td>
 <td>Get to the first real win without losing momentum</td>
 <td>The agent should be able to start the first meaningful action and produce a useful outcome on your service (provisioning &#x2F; account admin)</td>
-<td>Too many products treat install as the finish line instead of the start of a task</td>
+<td>Many products treat install as the finish line instead of the start of a user journey</td>
 </tr>
 <tr>
 <td>3 Conversion</td>
 <td>Convert user from free to paid</td>
-<td>The agent should present the right payment or update-payment link, then continue from the blocked step after approval</td>
-<td>Most products hit a wall with dead-end error response or generic plan messaging</td>
+<td>The agent should present its human with the upgrade payment link at the right moment and explain why it is needed</td>
+<td>Most products hit a wall with dead-end error responses or generic plan messaging</td>
 </tr>
 <tr>
 <td>4 Friction &#x2F; Bug Reports</td>
 <td>Return recovery help and capture structured feedback</td>
-<td>Your service should give the agent good recovery guidance in the skill and CLI, then expose a clean feedback endpoint so the agent can report the exact friction, failed step, and missing guidance</td>
+<td>Your service should give the agent good recovery guidance in the skill and CLI, and expose a feedback endpoint to report the exact friction, failed step, and missing guidance</td>
 <td>Most products still return vague errors, thin help text, and no structured way for the agent to report what broke</td>
 </tr>
 </tbody></table>
 <p>That is the real interface.</p>
 <p><img src="/img/ai-agent-interface/ai-agent-interface-diagram.png" srcset="/img/loading.gif" lazyload alt="Diagram of the four agent-native product moments: signup and login, onboarding and activation, conversion and payment approval, and friction and bug reporting, with agent context preserved across all four."></p>
 <h2 id="1-Login-should-match-whether-the-agent-is-live-or-async"><a href="#1-Login-should-match-whether-the-agent-is-live-or-async" class="headerlink" title="1. Login should match whether the agent is live or async"></a>1. Login should match whether the agent is live or async</h2><p>If your product wants to work with agents, login cannot be one generic flow. In Claude Code, Codex, Cursor, and Hermes, the human is often live with the agent, so normal browser approval works. In Paperclip, OpenClaw, remote workers, and scheduled jobs, the agent needs a detached approval path instead. In both cases the human should approve identity in the browser and the agent should continue with scoped access. I wrote more about that here: <a target="_blank" rel="noopener" href="https://blog.agentanalytics.sh/blog/login-pattern-ai-agents-need/">The Login Pattern AI Agents Need</a></p>
-<h2 id="2-Onboarding-and-activation-should-get-the-agent-to-a-real-first-win"><a href="#2-Onboarding-and-activation-should-get-the-agent-to-a-real-first-win" class="headerlink" title="2. Onboarding and activation should get the agent to a real first win"></a>2. Onboarding and activation should get the agent to a real first win</h2><p>Installation is not activation. The agent should be able to complete setup, provisioning, and get to a first useful result without forcing the human into manual account-admin detours. The product should keep the task. in Agent Analytics the agents can <a target="_blank" rel="noopener" href="https://docs.agentanalytics.sh/getting-started/">fully setup the user account after login</a>.</p>
-<h2 id="3-Conversion-should-let-the-human-approve-payment-while-the-agent-keeps-going"><a href="#3-Conversion-should-let-the-human-approve-payment-while-the-agent-keeps-going" class="headerlink" title="3. Conversion should let the human approve payment while the agent keeps going"></a>3. Conversion should let the human approve payment while the agent keeps going</h2><p>When the agent is the one using your product, conversion cannot feel like a human leaving the task to go figure out billing. The paywall-to-payment-details step should be frictionless: the agent should explain exactly why paid capability is needed, present the right payment or update-payment link at the moment of need, and then continue from the blocked step right after approval without losing the thread. The human owns the spend, but the agent owns the context, the blocked command, and the continuation of the work. I wrote more about that here: <a target="_blank" rel="noopener" href="https://blog.agentanalytics.sh/blog/agent-friendly-upgrade-links/">If You Build for AI Agents, Your Upgrade Flow Needs to Change</a></p>
-<h2 id="4-Friction-and-bugs-should-return-help-and-feed-back-into-the-product"><a href="#4-Friction-and-bugs-should-return-help-and-feed-back-into-the-product" class="headerlink" title="4. Friction and bugs should return help and feed back into the product"></a>4. Friction and bugs should return help and feed back into the product</h2><p>When something breaks, the agent is usually the one staring at the failure, not the human. So the product should return useful guidance in the skill and CLI. And provide a feedback endpoint so the user agents can send structured reports about friction, failed steps, and missing guidance, bugs. I wrote more about that here: <a target="_blank" rel="noopener" href="https://blog.agentanalytics.sh/blog/feedback-endpoint-ai-agents-need/">The Feedback Endpoint Claude Code and Codex Need</a></p>
-<p>If your product ships only a skill, a CLI, MCP, or an API, you have exposed a surface, not designed the interface. The real interface is whether the agent can carry the task through signup, activation, payment, and failure with only the right human approvals at the right moments.</p>
+<h2 id="2-Onboarding-and-activation-should-get-the-agent-to-a-real-first-win"><a href="#2-Onboarding-and-activation-should-get-the-agent-to-a-real-first-win" class="headerlink" title="2. Onboarding and activation should get the agent to a real first win"></a>2. Onboarding and activation should get the agent to a real first win</h2><p>Installation is not activation. The agent should be able to complete setup, provisioning, and get to a first useful result without forcing the human into manual account-admin detours. The product should keep the task moving. In Agent Analytics, agents can <a target="_blank" rel="noopener" href="https://docs.agentanalytics.sh/getting-started/">fully set up the user account after login</a>.</p>
+<h2 id="3-Conversion-should-let-the-human-approve-payment-while-the-agent-keeps-going"><a href="#3-Conversion-should-let-the-human-approve-payment-while-the-agent-keeps-going" class="headerlink" title="3. Conversion should let the human approve payment while the agent keeps going"></a>3. Conversion should let the human approve payment while the agent keeps going</h2><p>When the agent is the one using your product, conversion cannot feel like a human leaving the task to go figure out billing. The paywall-to-payment-details step should be frictionless: the human’s AI agent should explain exactly why paid capability is needed, present a direct signed payment link at the moment of need, and then continue from the blocked step right after approval without losing the thread. I wrote more about that here: <a target="_blank" rel="noopener" href="https://blog.agentanalytics.sh/blog/agent-friendly-upgrade-links/">If You Build for AI Agents, Your Upgrade Flow Needs to Change</a></p>
+<h2 id="4-Friction-and-bugs-should-return-help-and-feed-back-into-the-product"><a href="#4-Friction-and-bugs-should-return-help-and-feed-back-into-the-product" class="headerlink" title="4. Friction and bugs should return help and feed back into the product"></a>4. Friction and bugs should return help and feed back into the product</h2><p>When something breaks, the agent is usually the one staring at the failure, not the human. So the product should return useful guidance in the skill and CLI, and provide a feedback endpoint so user agents can send structured reports about friction, failed steps, missing guidance, and bugs. I wrote more about that here: <a target="_blank" rel="noopener" href="https://blog.agentanalytics.sh/blog/feedback-endpoint-ai-agents-need/">The Feedback Endpoint Claude Code and Codex Need</a></p>
+<p>If your product ships only a skill, a CLI, MCP, or an API, you have exposed a surface, not designed the interface. The real interface is whether the agent can carry its human through your product journey.</p>
 
                 
               </div>
@@ -391,7 +390,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>If you are building products for AI agents then skill, cli, mcp, api are not enough</div>
+      <div>If you are building products for AI agents, then a skill, CLI, MCP, or API is not enough</div>
       <div>https://dannyshmueli.com/2026/04/22/If-your-product-wants-AI-agents-npx-is-part-of-the-interface/</div>
     </div>
     <div class="license-meta">
