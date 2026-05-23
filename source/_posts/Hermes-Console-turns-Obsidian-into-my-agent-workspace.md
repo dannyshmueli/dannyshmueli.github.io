@@ -30,7 +30,7 @@ That is the second-brain loop I want: rough input becomes structured context, st
 
 Hermes Console came from that loop. I wanted the place where I think to also be the place where I ask Hermes to act.
 
-![Hermes Console running inside Obsidian](/img/llm-wiki-agent-workspace/hermes-console-github-screenshot.png)
+![Hermes Console running inside Obsidian](/img/llm-wiki-agent-workspace/hermes-console-github-screenshot-2026-05-23.png)
 
 <!-- more -->
 
