@@ -24,7 +24,7 @@ Supertonic 3 is the first one that felt good enough to make Hermes speak in my D
 
 This is the first sentence of this post, generated locally with Supertonic 3 at 95% speed:
 
-<audio controls preload="metadata" src="/audio/local-voice-for-ai-agents-supertonic-3-sample.mp3">
+<audio controls preload="metadata" src="/audio/local-voice-for-ai-agents-supertonic-3-sample.mp3?v=2026-05-24">
   Your browser does not support the audio element.
 </audio>
 
