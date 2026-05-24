@@ -19,28 +19,27 @@
   <meta name="author" content="Danny Shmueli">
   <meta name="keywords" content="">
   
-    <meta name="description" content="A practical rule for AI free tools: start with Firecrawl when you need speed, move to Cloudflare Browser Run when scan cost, rendered evidence, and custom fallback logic become the product.">
+    <meta name="description" content="Supertonic 3 made local agent voice good enough that I switched Hermes to it. Here is the prompt and why you should try it.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cloudflare Browser Run vs Firecrawl for AI free tools">
-<meta property="og:url" content="https://dannyshmueli.com/2026/05/21/Cloudflare-Browser-Run-vs-Firecrawl-for-AI-Free-Tools/index.html">
+<meta property="og:title" content="Local voice for AI agents finally sounds good">
+<meta property="og:url" content="https://dannyshmueli.com/2026/05/24/Local-Voice-for-AI-Agents-Finally-Sounds-Good/index.html">
 <meta property="og:site_name" content="Danny Shmueli">
-<meta property="og:description" content="A practical rule for AI free tools: start with Firecrawl when you need speed, move to Cloudflare Browser Run when scan cost, rendered evidence, and custom fallback logic become the product.">
+<meta property="og:description" content="Supertonic 3 made local agent voice good enough that I switched Hermes to it. Here is the prompt and why you should try it.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://dannyshmueli.com/img/cloudflare-browser-run-vs-firecrawl-for-ai-free-tools/hero.png">
-<meta property="article:published_time" content="2026-05-21T19:45:00.000Z">
-<meta property="article:modified_time" content="2026-05-22T09:41:18.159Z">
+<meta property="og:image" content="https://dannyshmueli.com/img/local-voice-for-ai-agents/hero.png">
+<meta property="article:published_time" content="2026-05-24T19:15:46.000Z">
+<meta property="article:modified_time" content="2026-05-24T19:36:42.958Z">
 <meta property="article:author" content="Danny Shmueli">
 <meta property="article:tag" content="ai-agents">
-<meta property="article:tag" content="cloudflare">
-<meta property="article:tag" content="firecrawl">
-<meta property="article:tag" content="free-tools">
-<meta property="article:tag" content="product">
+<meta property="article:tag" content="hermes">
+<meta property="article:tag" content="tts">
+<meta property="article:tag" content="local-ai">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://dannyshmueli.com/img/cloudflare-browser-run-vs-firecrawl-for-ai-free-tools/hero.png">
+<meta name="twitter:image" content="https://dannyshmueli.com/img/local-voice-for-ai-agents/hero.png">
   
   
   
-  <title>Cloudflare Browser Run vs Firecrawl for AI free tools - Danny Shmueli</title>
+  <title>Local voice for AI agents finally sounds good - Danny Shmueli</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,13 +200,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/cloudflare-browser-run-vs-firecrawl-for-ai-free-tools/hero.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/local-voice-for-ai-agents/hero.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Cloudflare Browser Run vs Firecrawl for AI free tools"></span>
+            <span id="subtitle" data-typed-text="Local voice for AI agents finally sounds good"></span>
           
         </div>
 
@@ -218,8 +217,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-21 22:45" pubdate>
-          May 21, 2026 pm
+        <time datetime="2026-05-24 22:15" pubdate>
+          May 24, 2026 pm
         </time>
       </span>
     
@@ -230,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          91 words
+          34 words
         
       </span>
     
@@ -278,103 +277,38 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Cloudflare Browser Run vs Firecrawl for AI free tools</h1>
+            <h1 id="seo-header">Local voice for AI agents finally sounds good</h1>
             
             
               <div class="markdown-body">
                 
-                <p>If you are building an AI free tool that scans websites, this is the tradeoff: Firecrawl gets you moving faster. Cloudflare Browser Run gives you more control when cost and output quality start to matter.</p>
-<p>The useful rule is simple:</p>
-<table>
-<thead>
-<tr>
-<th>Your constraint</th>
-<th>Better default</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>You need a prototype this week</td>
-<td>Firecrawl</td>
-</tr>
-<tr>
-<td>You need clean page text for an LLM</td>
-<td>Firecrawl</td>
-</tr>
-<tr>
-<td>You need cheap browser execution at free-tool volume</td>
-<td>Cloudflare Browser Run</td>
-</tr>
-<tr>
-<td>You need rendered evidence, visible UI labels, retries, validation, and fallbacks</td>
-<td>Cloudflare Browser Run</td>
-</tr>
-</tbody></table>
-<p>That is what happened with the <a target="_blank" rel="noopener" href="https://agentanalytics.sh/analysis/">Agent Analytics Product Growth Scanner</a>. We started with the higher-level path, then moved lower when the browser layer became part of the product.</p>
-<p><img src="/img/cloudflare-browser-run-vs-firecrawl-for-ai-free-tools/hero.png" srcset="/img/loading.gif" lazyload alt="Generated pixel-art hero showing simple extraction becoming controlled browser evidence"></p>
+                <p>I finally found a local voice for my agent that I actually like: <a target="_blank" rel="noopener" href="https://github.com/supertone-inc/supertonic">Supertonic 3</a> by <a target="_blank" rel="noopener" href="https://www.supertone.ai/">Supertone</a>.</p>
+<p>I tried Edge TTS. I tried Chatterbox. I tried a few local options. Most were either too robotic, too slow, or too much setup for something I want to use every day.</p>
+<p>Supertonic 3 is the first one that felt good enough to make Hermes speak in my Discord voice channel.</p>
+<h2 id="Hear-it"><a href="#Hear-it" class="headerlink" title="Hear it"></a>Hear it</h2><p>This is the first sentence of this post, generated locally with Supertonic 3 at 95% speed:</p>
+<audio controls preload="metadata" src="/audio/local-voice-for-ai-agents-supertonic-3-sample.mp3">
+  Your browser does not support the audio element.
+</audio>
+
 <!-- more -->
 
-<h2 id="The-scanner-needed-evidence-not-summaries"><a href="#The-scanner-needed-evidence-not-summaries" class="headerlink" title="The scanner needed evidence, not summaries"></a>The scanner needed evidence, not summaries</h2><p>A generic website summary was not enough.</p>
-<p>The scanner needed to answer sharper questions:</p>
+<h2 id="Why-use-it"><a href="#Why-use-it" class="headerlink" title="Why use it"></a>Why use it</h2><p>For agents, voice quality changes the product feel.</p>
+<p>Bad voice makes the agent feel like a toy. Good local voice makes it feel like part of the workflow.</p>
+<p>The important part is simple:</p>
 <ul>
-<li>What buttons and paths are actually visible?</li>
-<li>What proof, pricing, install steps, and forms are on the rendered page?</li>
-<li>Which three events should the founder track first?</li>
-<li>Which experiment ideas are tied to real page evidence?</li>
-<li>When is the model making generic CRO filler instead of reading the page?</li>
+<li>it runs locally</li>
+<li>it sounds natural enough</li>
+<li>it is fast enough for agent replies</li>
+<li>it does not need a paid TTS API for every response</li>
 </ul>
-<p>Once those became product requirements, the crawler was no longer plumbing.</p>
-<h2 id="What-we-ended-up-implementing"><a href="#What-we-ended-up-implementing" class="headerlink" title="What we ended up implementing"></a>What we ended up implementing</h2><p>The current scanner is Cloudflare-only.</p>
-<p>In <code>agent-analytics-hosted/hosted/website-scanner.js</code>, provider resolution accepts:</p>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Provider</th>
-<th>What it does</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Preview</td>
-<td><code>cloudflare_workers_ai</code></td>
-<td>Browser Run gets rendered markdown&#x2F;content, then Workers AI turns page facts into the scan.</td>
-</tr>
-<tr>
-<td>Full</td>
-<td><code>cloudflare_browser_ai</code></td>
-<td>Browser Run <code>/json</code> with the full scanner schema.</td>
-</tr>
-<tr>
-<td>Fallback</td>
-<td>deterministic code</td>
-<td>If the AI pass gets weak, build events and tests from extracted page facts.</td>
-</tr>
-</tbody></table>
-<p><img src="/img/cloudflare-browser-run-vs-firecrawl-for-ai-free-tools/scanner-flow-diagram.png" srcset="/img/loading.gif" lazyload alt="Generated block diagram of the scanner flow: rendered page to page facts to growth plan to safe fallback"></p>
-<p>The preview path is the important one:</p>
-<ol>
-<li>Browser Run gets the rendered page through <code>/markdown</code>.</li>
-<li>If needed, it retries through <code>/content</code>.</li>
-<li>The scanner extracts page facts: offer, buttons, paths, forms, proof, onboarding, install commands, pricing hints.</li>
-<li>A second AI pass turns those facts into events, blind spots, and experiment ideas.</li>
-<li>Validation rejects output that is schema-valid but not grounded in rendered evidence.</li>
-<li>Deterministic fallbacks produce a safer result from actual labels.</li>
-</ol>
-<p>That is the real product improvement. Not “Cloudflare is cheaper Firecrawl.” More like: Cloudflare let the scanner become evidence-first.</p>
-<h2 id="Why-Firecrawl-lost-this-use-case"><a href="#Why-Firecrawl-lost-this-use-case" class="headerlink" title="Why Firecrawl lost this use case"></a>Why Firecrawl lost this use case</h2><p>Firecrawl is still the better starting abstraction when you need clean extraction quickly.</p>
-<p>It lost here because the scanner became a free acquisition surface. Every scan has a budget. If cost makes you nervous about usage, you will under-build the tool.</p>
-<p>And once the scan quality depended on exact visible evidence, convenience mattered less than control over:</p>
-<ul>
-<li>rendered page evidence</li>
-<li>exact visible labels</li>
-<li>retry behavior</li>
-<li>validation gates</li>
-<li>generic-output rejection</li>
-<li>deterministic fallbacks</li>
-</ul>
-<p>Cloudflare was more setup. It also made the result more specific.</p>
-<h2 id="My-rule-now"><a href="#My-rule-now" class="headerlink" title="My rule now"></a>My rule now</h2><p>Start high-level while the product question is fuzzy.</p>
-<p>Move lower-level when the extraction layer becomes part of the product.</p>
-<p>For this scanner, Firecrawl helped the idea move fast. Cloudflare made the output better and cheaper to run. That was the right trade.</p>
+<p>That is the whole point. If your agent can talk back, the voice should not be the worst part of the experience.</p>
+<h2 id="Prompt-to-apply-it-to-your-agent"><a href="#Prompt-to-apply-it-to-your-agent" class="headerlink" title="Prompt to apply it to your agent"></a>Prompt to apply it to your agent</h2><p>Paste this into your coding agent:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Add Supertonic 3 as the local text-to-speech provider for this agent.<br></code></pre></td></tr></table></figure>
+
+<p>For Hermes, I wired it as a command TTS provider and set the default voice to <code>M3</code> at speed <code>1.05</code>.</p>
+<h2 id="When-I-would-use-it"><a href="#When-I-would-use-it" class="headerlink" title="When I would use it"></a>When I would use it</h2><p>Use this when your agent already works, but the voice makes it feel cheap.</p>
+<p>Do not start with voice. Start with a useful agent. Then add a voice that makes people want to keep using it.</p>
+<p>Supertonic 3 cleared that bar for me.</p>
 
                 
               </div>
@@ -398,7 +332,7 @@
   
     <span>></span>
     
-  <a href="/categories/ai/product/" class="category-chain-item">product</a>
+  <a href="/categories/ai/developer-tools/" class="category-chain-item">developer-tools</a>
   
   
 
@@ -417,13 +351,11 @@
       
         <a href="/tags/ai-agents/" class="print-no-link">#ai-agents</a>
       
-        <a href="/tags/cloudflare/" class="print-no-link">#cloudflare</a>
+        <a href="/tags/hermes/" class="print-no-link">#hermes</a>
       
-        <a href="/tags/firecrawl/" class="print-no-link">#firecrawl</a>
+        <a href="/tags/tts/" class="print-no-link">#tts</a>
       
-        <a href="/tags/free-tools/" class="print-no-link">#free-tools</a>
-      
-        <a href="/tags/product/" class="print-no-link">#product</a>
+        <a href="/tags/local-ai/" class="print-no-link">#local-ai</a>
       
     </div>
   
@@ -435,8 +367,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Cloudflare Browser Run vs Firecrawl for AI free tools</div>
-      <div>https://dannyshmueli.com/2026/05/21/Cloudflare-Browser-Run-vs-Firecrawl-for-AI-Free-Tools/</div>
+      <div>Local voice for AI agents finally sounds good</div>
+      <div>https://dannyshmueli.com/2026/05/24/Local-Voice-for-AI-Agents-Finally-Sounds-Good/</div>
     </div>
     <div class="license-meta">
       
@@ -448,7 +380,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>May 21, 2026</div>
+          <div>May 24, 2026</div>
         </div>
       
       
@@ -480,18 +412,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/05/24/Local-Voice-for-AI-Agents-Finally-Sounds-Good/" title="Local voice for AI agents finally sounds good">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Local voice for AI agents finally sounds good</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/05/18/Hermes-Console-turns-Obsidian-into-my-agent-workspace/" title="How my LLM Wiki became my second brain agent workspace">
-                        <span class="hidden-mobile">How my LLM Wiki became my second brain agent workspace</span>
+                      <a href="/2026/05/21/Cloudflare-Browser-Run-vs-Firecrawl-for-AI-Free-Tools/" title="Cloudflare Browser Run vs Firecrawl for AI free tools">
+                        <span class="hidden-mobile">Cloudflare Browser Run vs Firecrawl for AI free tools</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
