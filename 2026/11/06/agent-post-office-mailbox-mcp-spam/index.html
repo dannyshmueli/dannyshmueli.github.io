@@ -19,16 +19,16 @@
   <meta name="author" content="Danny Shmueli">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Agent Post Office is my Cloudflare mailbox for agents. Cold pitches still passed DKIM and DMARC, so I shipped a Worker-side spam scorer and put the inbox, labels, and marks on MCP.">
+    <meta name="description" content="I built Agent Post Office so my agents could use email on a domain I control. Through MCP they check an inbox, read messages, and manage mail, and I find it useful with Muse, Grok Bot, and Instinct.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Agent Post Office mailbox, spam filter, and MCP">
+<meta property="og:title" content="Giving my agents a mailbox with Agent Post Office.">
 <meta property="og:url" content="https://dannyshmueli.com/2026/11/06/agent-post-office-mailbox-mcp-spam/index.html">
 <meta property="og:site_name" content="Danny Shmueli">
-<meta property="og:description" content="Agent Post Office is my Cloudflare mailbox for agents. Cold pitches still passed DKIM and DMARC, so I shipped a Worker-side spam scorer and put the inbox, labels, and marks on MCP.">
+<meta property="og:description" content="I built Agent Post Office so my agents could use email on a domain I control. Through MCP they check an inbox, read messages, and manage mail, and I find it useful with Muse, Grok Bot, and Instinct.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://dannyshmueli.com/img/agent-post-office-mailbox-mcp-spam/hero.jpg">
 <meta property="article:published_time" content="2026-11-06T16:30:00.000Z">
-<meta property="article:modified_time" content="2026-11-06T18:42:12.348Z">
+<meta property="article:modified_time" content="2026-11-06T20:53:30.242Z">
 <meta property="article:author" content="Danny Shmueli">
 <meta property="article:tag" content="ai-agents">
 <meta property="article:tag" content="cloudflare">
@@ -41,7 +41,7 @@
   
   
   
-  <title>Agent Post Office mailbox, spam filter, and MCP - Danny Shmueli</title>
+  <title>Giving my agents a mailbox with Agent Post Office. - Danny Shmueli</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -208,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Agent Post Office mailbox, spam filter, and MCP"></span>
+            <span id="subtitle" data-typed-text="Giving my agents a mailbox with Agent Post Office."></span>
           
         </div>
 
@@ -231,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          127 words
+          40 words
         
       </span>
     
@@ -242,7 +242,7 @@
         
         
         
-          2 mins
+          1 mins
         
       </span>
     
@@ -279,35 +279,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Agent Post Office mailbox, spam filter, and MCP</h1>
+            <h1 id="seo-header">Giving my agents a mailbox with Agent Post Office.</h1>
             
             
               <div class="markdown-body">
                 
-                <p><a target="_blank" rel="noopener" href="https://agentpostoffice.com/">Agent Post Office</a> is my Cloudflare mailbox for agents. Inbound mail hits Email Routing, a Worker stores and parses it with D1, R2, and Queues, and agents talk to it through REST, a CLI, or MCP. Outbound mail leaves through Email Sending. The same Worker serves <code>POST /mcp</code>.</p>
-<p>Four real spam emails arrived. They were cold B2B pitches: an SEO audit offer, a downtime-outreach pitch, and a fake email verification. All four passed DKIM and DMARC. Cloudflare Email Routing reports SPF, DKIM, and DMARC results on inbound mail and leaves spam scoring to the Worker.</p>
+                <p>I built <a target="_blank" rel="noopener" href="https://agentpostoffice.com/">Agent Post Office</a> so my agents could use email on a domain I control. Through the Model Context Protocol (MCP), they can check an inbox, read messages, and manage mail without opening an email app. I find it useful with Muse, Grok Bot, and Instinct.</p>
+<p>APO runs on Cloudflare. Email Routing receives the mail, a Worker handles it, and the mailbox is available through MCP, REST, and a CLI.</p>
 <!-- more -->
 
-<h2 id="What-I-tried-first"><a href="#What-I-tried-first" class="headerlink" title="What I tried first"></a>What I tried first</h2><p>I looked for a scorer that would run inside the Worker.</p>
-<p>SpamGuard (MIT) scored one of the cold pitches at 0.3. formshield-ai is built for forms, not inbound mail. spamscanner is BUSL and needs <code>node:fs</code>. rspamd and SpamAssassin expect a server. I did not find a JS or WASM port of either. Naive Bayes libraries can run in a Worker.</p>
-<p>I evaluated SpamAssassin’s Apache-2.0 rule set as pure content scoring. Of 2,976 rules, 1,536 translated. Only 322 of those add to the score. On SpamAssassin’s public test set of 4,146 messages, that translated subset caught 14.7% of the spam. The 14.7% figure covers that translated subset only. All four of my real spam emails scored 0 with it.</p>
-<p>SpamAssassin usually leans on network lookups and learning along with static content rules. I left the translated rules out of the shipped filter. They stay a possible optional add-on later.</p>
-<h2 id="What-I-shipped"><a href="#What-I-shipped" class="headerlink" title="What I shipped"></a>What I shipped</h2><p>I wrote content rules from the spam Agent Post Office received. The shipped filter combines those rules with authentication signals and per-inbox learning. Scoring is additive and capped at 100. The default threshold is 60, configurable instance-wide through <code>SPAM_THRESHOLD</code> or per inbox. Per-inbox modes are <code>tag</code>, <code>quarantine</code>, or <code>off</code>.</p>
-<p><img src="/img/agent-post-office-mailbox-mcp-spam/spam-flow.jpg" srcset="/img/loading.gif" lazyload alt="Mail moves into the Worker, gets a score, and receives a spam tag. The message is kept."></p>
-<p>Auth failures contribute fixed points: DMARC failure adds 40, SPF failure adds 20, DKIM failure adds 20. One auth failure stays under the default threshold of 60. Content rules are capped at 19 points each. Block and allow lists come from my own marks.</p>
-<p>A per-inbox Bayes layer is built from those marks. It turns on only after 20 spam marks and 20 not-spam marks, needs 90% confidence, and is capped at 52 points. Fresh inboxes have no trained Bayes score yet.</p>
-<p>The live path runs in tag mode. It labels spam and keeps the mail. Marking spam as an operator moves the message to the spam folder, including when automatic mode is only tagging.</p>
-<p>I deployed it to three instances. In a live check, a test spam message scored 93 and was labeled. A normal message scored 0. That is one smoke test of the scoring path.</p>
-<p>The scorer is open source as <a target="_blank" rel="noopener" href="https://github.com/Agent-Post-Office/agent-post-office-spam-filter">Agent-Post-Office&#x2F;agent-post-office-spam-filter</a>, Apache-2.0, starting at v0.1.0.</p>
-<h2 id="MCP-for-the-mailbox"><a href="#MCP-for-the-mailbox" class="headerlink" title="MCP for the mailbox"></a>MCP for the mailbox</h2><p>Agents call MCP tools on the Worker.</p>
-<p><img src="/img/agent-post-office-mailbox-mcp-spam/mcp-workflow.jpg" srcset="/img/loading.gif" lazyload alt="An agent uses Agent Post Office MCP to read mail, inspect labels, and mark spam."></p>
-<ol>
-<li><code>poll_messages</code> reads the inbox feed. Pass <code>folder</code> as <code>inbox</code>, <code>spam</code>, or <code>all</code> when the spam folder should be included.</li>
-<li><code>get_message</code> inspects one message. The result includes folder plus spam verdict, score, and reasons. Content is untrusted plain text. HTML is omitted unless you ask for it.</li>
-<li><code>mark_spam</code> or <code>mark_not_spam</code> records the operator decision. Optional flags can also block or allow a sender or domain.</li>
-</ol>
-<p>That path is read, inspect labels, then mark. Sending and replying are separate tools with their own scopes. They sit outside this loop.</p>
-<p>I use that MCP surface from Grok Bot against live Agent Post Office inboxes. It is also useful for Muse and Instinct.</p>
+<h2 id="Email-inside-the-agent’s-workflow"><a href="#Email-inside-the-agent’s-workflow" class="headerlink" title="Email inside the agent’s workflow"></a>Email inside the agent’s workflow</h2><p><img src="/img/agent-post-office-mailbox-mcp-spam/mcp-workflow.jpg" srcset="/img/loading.gif" lazyload alt="An agent uses Agent Post Office MCP to read mail, inspect labels, and mark spam."></p>
+<p>An agent can poll for new messages, read their contents, and inspect spam labels and scores. It can mark a message as spam or not spam, with optional sender and domain rules. Sending and replying are separate tools with their own scopes.</p>
+<p>That gives me a mailbox I can work with from the agent I’m already using.</p>
+<h2 id="Then-spam-started-arriving"><a href="#Then-spam-started-arriving" class="headerlink" title="Then spam started arriving"></a>Then spam started arriving</h2><p><img src="/img/agent-post-office-mailbox-mcp-spam/spam-flow.jpg" srcset="/img/loading.gif" lazyload alt="Mail moves into the Worker, gets a score, and receives a spam tag. The message is kept."></p>
+<p>A few spam messages landed across my mailboxes: cold pitches and a fake email verification. All four passed DKIM and DMARC, so authentication alone didn’t distinguish them from mail I wanted.</p>
+<p>I added content rules based on those messages, combined with authentication signals and block and allow lists. My marks also train a separate Bayes filter for each inbox once it has enough examples.</p>
+<p>I run it in tag mode: suspected spam gets labeled, not deleted. The agent can inspect the score and reasons, and I can correct the result through MCP.</p>
+<p>The <a target="_blank" rel="noopener" href="https://github.com/Agent-Post-Office/agent-post-office-spam-filter">spam filter is open source</a> under Apache-2.0.</p>
 
                 
               </div>
@@ -370,7 +358,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Agent Post Office mailbox, spam filter, and MCP</div>
+      <div>Giving my agents a mailbox with Agent Post Office.</div>
       <div>https://dannyshmueli.com/2026/11/06/agent-post-office-mailbox-mcp-spam/</div>
     </div>
     <div class="license-meta">
