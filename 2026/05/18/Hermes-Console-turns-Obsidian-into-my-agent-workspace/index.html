@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Danny Shmueli">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="My LLM Wiki works because Obsidian holds the structure, Hermes acts on it, and Hermes Console makes the loop native inside the note I am reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How my LLM Wiki became my second brain agent workspace">
+<meta property="og:url" content="https://dannyshmueli.com/2026/05/18/Hermes-Console-turns-Obsidian-into-my-agent-workspace/index.html">
+<meta property="og:site_name" content="Danny Shmueli">
+<meta property="og:description" content="My LLM Wiki works because Obsidian holds the structure, Hermes acts on it, and Hermes Console makes the loop native inside the note I am reading.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dannyshmueli.com/img/llm-wiki-agent-workspace/hero.png">
+<meta property="article:published_time" content="2026-05-18T19:22:46.000Z">
+<meta property="article:modified_time" content="2026-11-06T16:29:45.821Z">
+<meta property="article:author" content="Danny Shmueli">
+<meta property="article:tag" content="ai-agents">
+<meta property="article:tag" content="hermes">
+<meta property="article:tag" content="obsidian">
+<meta property="article:tag" content="workflows">
+<meta property="article:tag" content="developer-tools">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dannyshmueli.com/img/llm-wiki-agent-workspace/hero.png">
+  
+  
+  
+  <title>How my LLM Wiki became my second brain agent workspace - Danny Shmueli</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dannyshmueli.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-EP4T16FE2D"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-EP4T16FE2D", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-EP4T16FE2D');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<!-- hexo injector head_end start --><script src="https://api.agentanalytics.sh/tracker.js" data-project="dannyshmueli-com" data-token="aat_b10f099e5e3afc70d05fd330ab1ac69afe64cc52b342456c"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Danny Shmueli</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/llm-wiki-agent-workspace/hero.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="How my LLM Wiki became my second brain agent workspace"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-18 19:22" pubdate>
+          May 18, 2026 7:22 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          218 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          2 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">How my LLM Wiki became my second brain agent workspace</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>I keep an LLM Wiki in Obsidian because it gives my work compounding memory.</p>
+<p>Brain dumps, project notes, research, backlogs, Kanban boards, decisions, and drafts all live as markdown. Hermes can read that structure, act on it, and write the result back. Obsidian keeps the graph visible.</p>
+<p>The useful pattern is simple: I keep the judgment layer human-owned, and let the agent maintain the coverage layer around it.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What lives there</th>
+<th>Who should touch it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Human-owned thinking</td>
+<td>Brain dumps, taste, decisions, strategy, voice, product judgment</td>
+<td>Me first. Hermes can reference it, but should not casually rewrite it.</td>
+</tr>
+<tr>
+<td>Agent-maintained coverage</td>
+<td>Source notes, summaries, entity pages, links, citations, drafts, backlog hygiene</td>
+<td>Hermes can ingest, organize, update, and connect it.</td>
+</tr>
+<tr>
+<td>Shipped artifacts</td>
+<td>Blog posts, plans, issues, code changes, cleaned-up notes</td>
+<td>We create them together, then feed the context back into the wiki.</td>
+</tr>
+</tbody></table>
+<p>That is the second-brain loop I want: rough input becomes structured context, structured context becomes work, and finished work leaves better context behind.</p>
+<p>Hermes Console came from that loop. I wanted the place where I think to also be the place where I ask Hermes to act.</p>
+<p><img src="/img/llm-wiki-agent-workspace/hermes-console-github-screenshot-2026-05-23.png" srcset="/img/loading.gif" lazyload alt="Hermes Console running inside Obsidian"></p>
+<!-- more -->
+
+<h2 id="The-idea-clicked-in-Obsidian"><a href="#The-idea-clicked-in-Obsidian" class="headerlink" title="The idea clicked in Obsidian"></a>The idea clicked in Obsidian</h2><p>I first saw the Hermes + Obsidian shape in <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Qn2c_U-cWQs&t=1457s">Greg Isenberg’s conversation with Imran Muthuvappa</a>, where Imran talked about Obsidian working well with Hermes because it is markdown and the agent can organize it.</p>
+<p>The LLM Wiki structure comes from <a target="_blank" rel="noopener" href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Andrej Karpathy’s LLM Wiki pattern</a>: build interlinked markdown so future work starts from accumulated context instead of a blank chat.</p>
+<p>Kevin Simback’s post on a <a target="_blank" rel="noopener" href="https://x.com/KSimback/status/2043745657748361476">modified Karpathy second brain method</a> gave me the sharper framing: the wiki needs two authors. Human thinking should stay protected. Agent-maintained knowledge should stay fresh.</p>
+<p>That distinction is what keeps the system useful. If the agent writes everything, the wiki drifts toward generic prose. If I maintain everything manually, it decays. The durable version is a shared workspace with clear ownership.</p>
+<p><img src="/img/llm-wiki-agent-workspace/comic-two-authors.png" srcset="/img/loading.gif" lazyload alt="The second brain gets two authors"></p>
+<h2 id="My-working-loop"><a href="#My-working-loop" class="headerlink" title="My working loop"></a>My working loop</h2><p>A normal idea starts messy.</p>
+<p>It might be a paragraph in a brain dump, a saved link, a note under <code>backlogs/personal-blog.md</code>, or a card in a Kanban board. The important part is that it is already inside the wiki, close to the surrounding context.</p>
+<p>Then Hermes can do the next step:</p>
+<ol>
+<li>Read the selected note or current backlog item.</li>
+<li>Inspect the linked context around it.</li>
+<li>Turn it into a draft, issue, plan, cleanup, or research task.</li>
+<li>Update the wiki so the next session starts smarter.</li>
+</ol>
+<p><img src="/img/llm-wiki-agent-workspace/brain-dump-to-agent-memory.png" srcset="/img/loading.gif" lazyload alt="Brain dump to agent memory"></p>
+<p>This is why markdown matters. It is boring in the best way. Notes, links, frontmatter, backlogs, logs, and drafts are all plain files. Hermes can reason over them, patch them, move them, and verify them.</p>
+<p>Obsidian gives me the human surface. Hermes gives me the action layer.</p>
+<h2 id="What-Hermes-Console-adds"><a href="#What-Hermes-Console-adds" class="headerlink" title="What Hermes Console adds"></a>What Hermes Console adds</h2><p>Before Hermes Console, the workflow already worked from a terminal. I could open Hermes in the vault, point it at a file, and ask it to update the wiki.</p>
+<p>The missing piece was immediacy.</p>
+<p>When I am reading a note and a paragraph becomes the next action, I want to select it, type a prompt, and continue from there without leaving Obsidian.</p>
+<p>Hermes Console makes that native:</p>
+<ul>
+<li>terminal tabs inside Obsidian</li>
+<li>Hermes startup from the vault context</li>
+<li>opt-in selected-note or cursor context per tab</li>
+<li>Shift+Enter for multi-line prompts</li>
+<li>busy&#x2F;idle state per Hermes tab</li>
+<li>unread&#x2F;background completion indicators</li>
+<li>settings for theme, font, shell, scrollback, and panel location</li>
+</ul>
+<p>The most important detail is selected-note context. I can highlight text in Obsidian, turn on <code>Send context to Hermes</code>, and submit a prompt. The selected text becomes context for Hermes without being pasted into the terminal input.</p>
+<p><img src="/img/llm-wiki-agent-workspace/hermes-console-github-screenshot-2.png" srcset="/img/loading.gif" lazyload alt="Send context to Hermes from the Obsidian sidebar"></p>
+<p>That changes the feel of the wiki. A note is no longer only something I read. It is something I can act on.</p>
+<h2 id="The-bridge-is-intentionally-small"><a href="#The-bridge-is-intentionally-small" class="headerlink" title="The bridge is intentionally small"></a>The bridge is intentionally small</h2><p>Hermes Console has three pieces:</p>
+<table>
+<thead>
+<tr>
+<th>Piece</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Obsidian plugin: Hermes Console</td>
+<td>Owns the terminal UI, tabs, PTY sessions, note-context capture, settings, and visible status.</td>
+</tr>
+<tr>
+<td>Bridge file: <code>.obsidian/hermes/context.json</code></td>
+<td>Local JSON handoff written inside the active vault.</td>
+</tr>
+<tr>
+<td>Hermes plugin: <code>obsidian-context-bridge</code></td>
+<td>Reads the bridge, injects note context into the Hermes turn, exposes <code>obsidian_context()</code>, and writes busy&#x2F;idle status.</td>
+</tr>
+</tbody></table>
+<p>I like this because each side owns what it understands. Obsidian owns editor state. Hermes owns the agent turn. A local file connects them.</p>
+<p><img src="/img/llm-wiki-agent-workspace/hermes-console-plugin-flow.png" srcset="/img/loading.gif" lazyload alt="Hermes Console plugin flow"></p>
+<p>To use selected-note context, install the Hermes-side bridge once:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hermes plugins install dannyshmueli/obsidian-hermes-console --<span class="hljs-built_in">enable</span><br></code></pre></td></tr></table></figure>
+
+<p>Hermes Console is now published in Obsidian Community Plugins: <a target="_blank" rel="noopener" href="https://community.obsidian.md/plugins/hermes-console">community.obsidian.md&#x2F;plugins&#x2F;hermes-console</a>. Install it there, enable it, download the native binaries from plugin settings, and open the console.</p>
+<h2 id="The-product-lesson"><a href="#The-product-lesson" class="headerlink" title="The product lesson"></a>The product lesson</h2><p>The pattern I would copy into other agent products is this:</p>
+<ol>
+<li>Keep the user’s pointing action native.</li>
+<li>Pass the current object as context at submit time.</li>
+<li>Show enough state that the handoff feels trustworthy.</li>
+</ol>
+<p>In Obsidian, the pointing action is selected text or cursor location. In a code editor, it might be the current file, diff, symbol, or failing test. In an analytics product, it might be the current chart, cohort, or funnel step.</p>
+<p>The interface already knows what the user is pointing at. The agent should receive that context cleanly.</p>
+<h2 id="The-takeaway"><a href="#The-takeaway" class="headerlink" title="The takeaway"></a>The takeaway</h2><p>Hermes Console matters because it makes my LLM Wiki easier to grow.</p>
+<p>The wiki gives Hermes durable context. Hermes turns that context into work. Obsidian keeps the structure visible. Hermes Console puts the agent inside the same workspace where the thinking happens.</p>
+<p>That is the system I want: a personal knowledge base that improves through use, with an agent sitting inside it.</p>
+<p>Install page: <a target="_blank" rel="noopener" href="https://community.obsidian.md/plugins/hermes-console">Hermes Console on Obsidian Community Plugins</a></p>
+<p>Repo: <a target="_blank" rel="noopener" href="https://github.com/dannyshmueli/obsidian-hermes-console">github.com&#x2F;dannyshmueli&#x2F;obsidian-hermes-console</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/ai/" class="category-chain-item">ai</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/ai/developer-tools/" class="category-chain-item">developer-tools</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/ai-agents/" class="print-no-link">#ai-agents</a>
+      
+        <a href="/tags/hermes/" class="print-no-link">#hermes</a>
+      
+        <a href="/tags/obsidian/" class="print-no-link">#obsidian</a>
+      
+        <a href="/tags/workflows/" class="print-no-link">#workflows</a>
+      
+        <a href="/tags/developer-tools/" class="print-no-link">#developer-tools</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>How my LLM Wiki became my second brain agent workspace</div>
+      <div>https://dannyshmueli.com/2026/05/18/Hermes-Console-turns-Obsidian-into-my-agent-workspace/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Danny Shmueli</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>May 18, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/05/21/Cloudflare-Browser-Run-vs-Firecrawl-for-AI-Free-Tools/" title="Cloudflare Browser Run vs Firecrawl for AI free tools">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Cloudflare Browser Run vs Firecrawl for AI free tools</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/29/Matt-Pocock-Skills-Hermes-Subagents-Feature-Work/" title="How I’m using Matt Pocock’s skills inside Hermes to run sub-agents on multi-surface features">
+                        <span class="hidden-mobile">How I’m using Matt Pocock’s skills inside Hermes to run sub-agents on multi-surface features</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
