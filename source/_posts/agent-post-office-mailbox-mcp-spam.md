@@ -1,5 +1,5 @@
 ---
-title: Agents read a Cloudflare mailbox over MCP
+title: Giving my agents a mailbox with Agent Post Office.
 date: 2026-11-06 18:30:00 +0200
 tags:
   - ai-agents
@@ -11,44 +11,34 @@ tags:
 categories:
   - ai
   - developer-tools
-excerpt: "Agent Post Office gives my agents their own inbox on a domain I control. They poll, read, and mark mail through MCP, and spam stays labeled in the mailbox."
+excerpt: "I built Agent Post Office so my agents could use email on a domain I control. Through MCP they check an inbox, read messages, and manage mail, and I find it useful with Muse, Grok Bot, and Instinct."
 index_img: /img/agent-post-office-mailbox-mcp-spam/hero.jpg
 banner_img: /img/agent-post-office-mailbox-mcp-spam/hero.jpg
 og_img: /img/agent-post-office-mailbox-mcp-spam/hero.jpg
 ---
 
-[Agent Post Office](https://agentpostoffice.com/) gives my agents a mailbox on a domain I control. Inbound mail hits Cloudflare Email Routing. A Worker stores and parses it with D1, R2, and Queues. Outbound mail leaves through Email Sending. The same Worker serves REST, a CLI, and `POST /mcp`.
+I built [Agent Post Office](https://agentpostoffice.com/) so my agents could use email on a domain I control. Through the Model Context Protocol (MCP), they can check an inbox, read messages, and manage mail without opening an email app. I find it useful with Muse, Grok Bot, and Instinct.
 
-Agents poll that inbox, open a message, and mark it with tools on the Worker.
+APO runs on Cloudflare. Email Routing receives the mail, a Worker handles it, and the mailbox is available through MCP, REST, and a CLI.
 
 <!-- more -->
 
-## Read and mark over MCP
+## Email inside the agent’s workflow
 
 ![An agent uses Agent Post Office MCP to read mail, inspect labels, and mark spam.](/img/agent-post-office-mailbox-mcp-spam/mcp-workflow.jpg)
 
-1. `poll_messages` reads the feed. Pass `folder` as `inbox`, `spam`, or `all`.
-2. `get_message` returns the folder, spam verdict, score, and reasons. The default body is untrusted plain text. Ask for HTML if you need it.
-3. `mark_spam` and `mark_not_spam` record the decision. Optional flags can block or allow a sender or domain.
+An agent can poll for new messages, read their contents, and inspect spam labels and scores. It can mark a message as spam or not spam, with optional sender and domain rules. Sending and replying are separate tools with their own scopes.
 
-Sending and replying are separate tools with their own scopes.
+That gives me a mailbox I can work with from the agent I’m already using.
 
-I use this MCP surface from Grok Bot on live Agent Post Office inboxes. It is also useful for Muse and Instinct.
-
-## Spam landed in the mailboxes
-
-Four real spam emails arrived: an SEO audit offer, a downtime-outreach pitch, and a fake email verification. All four passed DKIM and DMARC. Email Routing reports SPF, DKIM, and DMARC results. The Worker scores the mail.
-
-## The mail stays visible
+## Then spam started arriving
 
 ![Mail moves into the Worker, gets a score, and receives a spam tag. The message is kept.](/img/agent-post-office-mailbox-mcp-spam/spam-flow.jpg)
 
-The live path runs in tag mode. It labels spam and keeps the message. When I mark a message as spam, it moves to the spam folder, including when automatic mode is only tagging.
+A few spam messages landed across my mailboxes: cold pitches and a fake email verification. All four passed DKIM and DMARC, so authentication alone didn’t distinguish them from mail I wanted.
 
-Marks also feed block and allow lists and a per-inbox Bayes layer. Bayes turns on after 20 spam marks and 20 not-spam marks, needs 90% confidence, and is capped at 52 points. Fresh inboxes have no trained Bayes score yet.
+I added content rules based on those messages, combined with authentication signals and block and allow lists. My marks also train a separate Bayes filter for each inbox once it has enough examples.
 
-Scoring is additive and capped at 100. The default threshold is 60, set with `SPAM_THRESHOLD` or per inbox. Per-inbox modes are `tag`, `quarantine`, or `off`. DMARC failure adds 40, SPF failure adds 20, and DKIM failure adds 20. Each content rule is capped at 19 points. I wrote those rules from spam the mailbox received.
+I run it in tag mode: suspected spam gets labeled, not deleted. The agent can inspect the score and reasons, and I can correct the result through MCP.
 
-On three instances, one smoke test scored a spam message at 93 and a normal message at 0.
-
-The scorer is [Agent-Post-Office/agent-post-office-spam-filter](https://github.com/Agent-Post-Office/agent-post-office-spam-filter), Apache-2.0, from v0.1.0.
+The [spam filter is open source](https://github.com/Agent-Post-Office/agent-post-office-spam-filter) under Apache-2.0.
